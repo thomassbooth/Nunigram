@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '../Components/Posts/Post'
+import Post from './Post'
 import Story from '../Components/Stories/Story'
 import Auth0login from '../Components/Auth0/Auth0login'
 import Auth0logout from '../Components/Auth0/Auth0logout'
