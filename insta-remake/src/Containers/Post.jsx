@@ -18,7 +18,7 @@ const Post = ({postData}) => {
   }
 
   return (
-    <div className = "">
+    <div className = "mx-10">
         <Profile name = {postData.profile.name} location = {postData.profile.location} picture = {postData.image} />
         <Image image = {postData.image} onLike = {onLike}/>
         <Reactions bookmark = {bookmarked} onMark = {onMark} liked = {liked} onLike = {onLike} likes = {postData.likes} name = {postData.profile.name} caption = {postData.caption}/>

@@ -3,7 +3,7 @@ import Title from '../Components/Nav/Title'
 
 const Nav = () => {
   return (
-    <div className='fixed w-1/5 h-screen bg-white border-r-[1px]'>
+    <div className=' w-1/5 h-screen bg-white border-r-[1px]'>
       <nav className = 'flex flex-col px-3 pl-5 border-b-1'>
           <Title/>
           <Button text = {"Home"} icon = {"fa-home"}/>

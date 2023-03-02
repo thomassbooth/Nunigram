@@ -3,13 +3,21 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import Nav from './Containers/Nav'
 import Center from './Containers/Center'
+import Right from './Containers/Center_Right'
 
 
 function App() {
   return (
     <div>
-      <Nav/>
-      <Center/>
+      <div className = 'flex'>
+        <Nav/>
+        <div className = 'w-4/5 flex justify-center'>
+          <Center/>
+        </div>
+        
+      </div>
+      
+      
     </div>
   )
 }
