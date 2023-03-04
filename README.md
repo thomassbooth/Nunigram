@@ -6,7 +6,7 @@ Tools Used:
 - ReactJS
 - Tailwind CSS
 - OAuth Integrations for login
-
+- React Router
 
 Backend (seperate repo)
 
