@@ -1,2 +1,15 @@
 # social-website
-Social media website built in react + django.
+Front end for an instagram recreation.
+
+Tools Used:
+
+- ReactJS
+- Tailwind CSS
+- OAuth Integrations for login
+
+
+Backend (seperate repo)
+
+- Django
+- Django-rest
+- Postgresql
