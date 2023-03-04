@@ -4,7 +4,8 @@ A Front end for an instagram recreation.
 ## About this project
 
 
-## Tools Used:
+
+### Tools Used:
 
 - ReactJS
 - Tailwind CSS
