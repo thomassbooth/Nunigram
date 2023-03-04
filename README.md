@@ -1,7 +1,10 @@
-# social-website
+# Nunigram
 Front end for an instagram recreation.
 
-Tools Used:
+## About this project
+
+
+##Tools Used:
 
 - ReactJS
 - Tailwind CSS
