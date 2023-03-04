@@ -11,7 +11,9 @@ function App() {
     <div>
       <div className = 'flex'>
         <Nav/>
-        <div className = 'w-4/5 flex justify-center'>
+        <div className = 'w-screen flex justify-center'>
+          <div className = 'w-1/5'>
+          </div>
           <Center/>
         </div>
         

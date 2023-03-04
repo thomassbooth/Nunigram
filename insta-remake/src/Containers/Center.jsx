@@ -51,7 +51,7 @@ const Center = () => {
                     return <Story id = {storyId} storyData = {story}/>
                 })}    
             </div>
-            <div>
+            <div className = 'mt-10'>
                 {/* all posts */}
                 {postsData.map((post) => {
                     postId += 1;
