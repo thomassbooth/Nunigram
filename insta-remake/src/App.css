@@ -11,5 +11,13 @@
     transform-origin: 50% 50%;
 }
 
+.button:hover img{
+    /* font-size: 1.1em;
+    transition: .2s ease-out; */
+    transform: scale(1.03);
+    transition: transform .1 ease-in-out;
+    transform-origin: 50% 50%;
+}
+
 
     
