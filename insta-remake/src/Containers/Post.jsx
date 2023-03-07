@@ -23,7 +23,7 @@ const Post = ({postData}) => {
         <Image image = {postData.image} onLike = {onLike}/>
         <Reactions bookmark = {bookmarked} onMark = {onMark} liked = {liked} onLike = {onLike} likes = {postData.likes} name = {postData.profile.name} caption = {postData.caption}/>
         <Comment commentCount = {postData.comments.count} comment = {"Hot cat man"}/>
-        <hr className = "my-10"></hr>
+        <hr className = "my-5"></hr>
     </div>
   )
 }
