@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import LoginButton from '../Auth0/Auth0login'
 const Title = () => {
   return (
     <div className = 'flex items-center h-20 pl-3'>
-        <a href = '' className = 'w-52'>
+        <Link className = 'w-52'>
             Nunigram
-        </a>
+        </Link>
     </div>
   )
 }
