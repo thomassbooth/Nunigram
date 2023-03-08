@@ -7,11 +7,9 @@ function Suggestion({img, name, followedBy}) {
   return (
     <div className = 'flex'>
       <div className = 'w-[250px] flex content-center '>
-        <Link>
-          <img src = {img} className = "border border-gray-400 rounded-full w-9 h-9 mr-3"></img>
-        </Link>
+        <Link to = {name}><img src = {img} className = "border border-gray-400 rounded-full w-9 h-9 mr-3"></img></Link>
         <div>
-          <a href = ''><p className = 'tracking-tight text-[13px] text-gray-800 font-medium'>{name}</p></a>
+          <Link to = {name} className = 'tracking-tight text-[13px] text-gray-800 font-medium'>{name}</Link>
           <p className = 'tracking-tight text-[11.5px] opacity-40'>Followed by {followedBy}</p>
         </div>
       </div>

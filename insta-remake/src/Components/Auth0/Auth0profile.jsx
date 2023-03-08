@@ -8,7 +8,17 @@ const Auth0Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return (
+      <div className = 'flex items-center'>
+        <div className = 'flex items-center w-[250px]'>
+          <div className = 'rounded-full w-14 h-14 border bg-gray-300'></div>
+          <div className = 'ml-4'>
+            <div className = 'w-20 h-4 opacity-50 bg-gray-300'></div>
+          </div>
+        </div>
+        <div className = 'w-10 h-2 opacity-50 bg-gray-300'></div>
+      </div>
+    )
   }
   return (
     isAuthenticated && (
