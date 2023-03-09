@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Reactions = ({bookmark, onMark, liked, onLike, likes, name, caption}) => {
     let likedClass = "fa fa-heart-o mr-5"
@@ -25,7 +26,7 @@ const Reactions = ({bookmark, onMark, liked, onLike, likes, name, caption}) => {
             {likes} likes
         </button>
         <div className = "text-sm"> 
-            <a href = "" className = "font-semibold">{name}</a> {caption}
+            <Link to = {name} className = "font-semibold">{name}</Link> {caption}
         </div>
     </div>
     
