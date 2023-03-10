@@ -8,8 +8,11 @@ function Profile() {
     const {handle} = useParams();
     const [profileData, setProfile] = useState({
       nickname: 'thomassboothh',
-      name: 'tomas',
-      about: 'test data /n test data123',
+      name: 'Tom Booth',
+      pronouns: 'she/her',
+      about: 'test datatest data123',
+      occupation: 'Software Engineer',
+      mutualFollowers: ['Dave', 'bigtimmy', 'stevenHawk', 'stinkyPeter'],
       posts: 15,
       followers: 388,
       following: 384,

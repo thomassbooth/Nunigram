@@ -29,27 +29,6 @@ function Name({personalAcc, handle, data, followedUser}) {
             {userButtons}
             
         </div>
-        <div className='my-10'></div>
-        <ul className = 'flex text-lg tracking-wide '>
-            <li className = 'mr-12'>
-                <div>
-                    <span>{data.posts}</span>
-                    <span className = 'font-extralight'> posts</span>
-                </div>
-            </li>
-            <li className = 'mr-8'>
-                <div>
-                    <span>{data.followers}</span>
-                    <span className = 'font-extralight '> follwers</span>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <span>{data.following}</span>
-                    <span className = 'font-extralight '> following</span>
-                </div>
-            </li>
-        </ul>
     </div>
   )
 }
