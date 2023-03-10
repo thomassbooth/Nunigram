@@ -13,15 +13,10 @@ function About({handle, data, watchedStory, followedUser}) {
     
     isAuthenticated && <section>
         <div className = 'flex mt-8 items-center'>
-            {!personalAcc 
-                ? <Image data = {data} user = {user} watchedStory = {watchedStory}/>
-                : <button className = 'mr-20 ml-10'>
-                    <img src = {user.picture} className = {'w-[175px] rounded-full border border-gray-500'}></img>
-                </button>
-            }
+            <Image data = {data} user = {user} watchedStory = {watchedStory}/>
             <div>
                 <Name personalAcc = {personalAcc} handle = {handle} data = {data} followedUser = {followedUser}/>
-                <div className='my-10'></div>
+                <div className='my-6'></div>
                 <ul className = 'flex text-lg tracking-wide '>
                     <li className = 'mr-12'>
                         <div>

@@ -10,9 +10,9 @@ function Image({data, user, watchedStory}) {
   return (
     <div>
         {data.story.exists ? 
-            <button onClick = {() => {watchedStory()}} className = 'mr-20 ml-10'>
+            <button onClick = {() => {watchedStory()}} className = 'mr-20 ml-20'>
                 <img src = 'images/cat.jpg' className = {'w-[175px] rounded-full border border-gray-500 ' + storyClass}></img>
-            </button> : <div className = 'mr-20 ml-10'><img src = 'images/cat.jpg' className = 'w-[175px] rounded-full border border-gray-500'></img></div>}
+            </button> : <div className = 'mr-20 ml-20'><img src = 'images/cat.jpg' className = 'w-[175px] rounded-full border border-gray-500'></img></div>}
     </div>
   )
 }

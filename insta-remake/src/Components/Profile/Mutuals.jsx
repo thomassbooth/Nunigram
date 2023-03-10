@@ -15,7 +15,6 @@ function Mutuals({mutualFollowers}) {
             <span>{followedByMiddle}</span>
             <span className = 'opacity-50'>{followedByEnd}</span>
         </button>
-        
     </div>
   )
 }
