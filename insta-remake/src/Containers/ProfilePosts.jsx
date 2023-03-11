@@ -10,7 +10,7 @@ function ProfilePosts() {
     },
     {
       name: 'SAVED',
-      icon: 'fa-th',
+      icon: 'fa-bookmark-o',
       active: false
     },
     {
@@ -20,10 +20,10 @@ function ProfilePosts() {
     }
   ])
   return (
-    <div className = 'border-t mt-16'>
+    <div className = 'border-t mt-10'>
       <div className = 'flex justify-center space-x-20'>
         {postTypes.map((tab) => {
-          return <ImageTypes tab = {tab}/>
+          return <ImageTypes tab = {tab} allTabls = {postTypes}/>
         })}
       </div>
     </div>
