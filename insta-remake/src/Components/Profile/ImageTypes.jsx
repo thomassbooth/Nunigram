@@ -8,7 +8,6 @@ function ImageTypes({tab, activeTab, updateTab}) {
   } else {
     tabClass += 'opacity-50 '
   }
-
   
   return (
     <div className = {tabClass}>

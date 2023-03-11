@@ -22,6 +22,18 @@ function ProfilePosts() {
     setActive(tabName)
   }
   
+  function renderPosts() {
+    switch(activeTab){
+      case 'POSTS':
+        return 'POSTS'
+      case 'SAVED':
+        return 'SAVED'
+      case 'TAGGED':
+        return 'TAGGED'
+      default:
+        break;
+    }
+  }
 
   return (
     <div className = 'border-t mt-10'>
@@ -30,6 +42,7 @@ function ProfilePosts() {
           return <ImageTypes key = {tab} tab = {postTypes[tab]} activeTab = {activeTab} updateTab = {updateTab}/>
         })}
       </div>
+      {renderPosts()}
     </div>
   )
 }
