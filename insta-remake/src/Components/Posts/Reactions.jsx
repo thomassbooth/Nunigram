@@ -11,7 +11,7 @@ const Reactions = ({bookmark, onMark, liked, onLike, likes, name, caption}) => {
     if (bookmark == true) {
         markedClass = "fa fa-bookmark-o bg-red-300"
     }
-
+    
   return (
     <div>
         <div className = "my-2 text-2xl flex justify-between">
