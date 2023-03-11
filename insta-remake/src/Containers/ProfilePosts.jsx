@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ImageTypes from '../Components/Profile/ImageTypes'
 
 function ProfilePosts() {
+  const [postTypes, setTypes] = useState([
+    {
+      name: 'POSTS',
+      icon: 'fa-th',
+      active: true
+    },
+    {
+      name: 'SAVED',
+      icon: 'fa-th',
+      active: false
+    },
+    {
+      name: 'TAGGED',
+      icon: 'fa-th',
+      active: false
+    }
+  ])
   return (
     <div className = 'border-t mt-16'>
       <div className = 'flex justify-center space-x-20'>
-        <div className = 'flex items-center border-t-[0.5px] border-black'>
-          <i className = 'fa fa-th mr-2'></i>
-          <p>POSTS</p>
-        </div>
-        <div className = 'flex items-center border-t-[0.5px] border-black'>
-          <p>SAVED</p>
-        </div>
-        <div className = 'flex items-center border-t-[0.5px] border-black'>
-          <p>TAGGED</p>
-        </div>
+        {postTypes.map((tab) => {
+          return <ImageTypes tab = {tab}/>
+        })}
       </div>
     </div>
   )
