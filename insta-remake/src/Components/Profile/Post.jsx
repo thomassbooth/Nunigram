@@ -16,7 +16,7 @@ function Post({likes, comments, src}) {
           </div>
       </button>
       {isOpen ? <Modal open = {isOpen} onClose = {() => {setIsOpen(false)}}>
-        <img src = 'images/cat.jpg'></img>
+        <img className = 'w-[500px]' src = 'images/cat.jpg'></img>
       </Modal> : null}
     </>
   )

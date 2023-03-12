@@ -5,6 +5,9 @@ import { useEffect, useRef } from 'react'
 function Modal({open, onClose, children}) {
     const ref = useRef()
     useEffect(() => {
+        /*
+        setup an event listener and remove it and let user scroll on
+        */
         const checkIfOutside = (e) => {
             if(!ref.current.contains(e.target)){
                 onClose()
@@ -19,8 +22,8 @@ function Modal({open, onClose, children}) {
     }, [open])
 
     return ReactDom.createPortal(
-        <div className = 'fixed origin-center top-0 left-0 right-0 bottom-0 bg-black/70'>
-            <div ref = {ref} className = 'fixed top-1/2 left-1/2 p-10 bg-white'>
+        <div className = 'fixed flex top-0 left-0 right-0 bottom-0 justify-center items-center bg-black/70'>
+            <div ref = {ref} className = 'p-10 bg-white'>
                 {children}
             </div>
         </div>,
