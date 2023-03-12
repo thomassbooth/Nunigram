@@ -23,6 +23,7 @@ function Profile() {
         exists: true,
         watched: false
       },});
+
     const postTypes = {
       1: {
         name: 'POSTS',
@@ -34,7 +35,7 @@ function Profile() {
       },
       3: {
         name: 'TAGGED',
-        icon: 'fa-th',
+        icon: 'fa-address-book-o',
       }}
       
     const updateTab = (tabName) => {setActive(tabName)}
