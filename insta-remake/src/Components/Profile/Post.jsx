@@ -5,12 +5,6 @@ import User from '../Posts/User'
 
 function Post({likes, comments, src}) {
   const [isOpen, setIsOpen] = useState(false)
-  if (isOpen){
-    
-  }
-  let size = String(Math.floor(((window.screen.availHeight/5)*4)/100)*100)
-  let modalHeightClass = 'h-[' + size + 'px]'
-  console.log(modalHeightClass)
   return (
     <>
       <button onClick = {() => {setIsOpen(true)}} className = 'relative group mb-7'>
@@ -24,7 +18,7 @@ function Post({likes, comments, src}) {
       </button>
       {isOpen ? <Modal open = {isOpen} onClose = {() => {setIsOpen(false)}}>
         <div className = 'flex'>
-          <img className = {modalHeightClass} src = {src}></img>
+          <img className = 'h-[600px]' src = {src}></img>
           <div className = 'w-[450px] m-3'>
             <User  name = {'thomassbooth'} location = {'Hatta Dam'} picture = 'images/cat.jpg'/>
           </div>
