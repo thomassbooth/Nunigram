@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import ImageTypes from '../Components/Profile/ImageTypes'
 import Post from '../Components/Profile/Post'
 import About from '../Containers/About'
+import Modal from '../Containers/Modal'
 
 function Profile() {
     const {handle} = useParams();

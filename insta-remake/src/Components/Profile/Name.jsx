@@ -26,9 +26,8 @@ function Name({personalAcc, handle, data, followedUser}) {
     <div>
         <div className = 'flex items-center'>
             <span className = 'text-xl tracking-wide font-light'>{handle}</span>
-            {userButtons}
-            
-        </div>
+            {userButtons}       
+        </div> 
     </div>
   )
 }
