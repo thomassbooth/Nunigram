@@ -8,6 +8,7 @@ function Name({personalAcc, handle, data, followedUser}) {
         <button><i className = 'fa text-[20px] fa-cog ml-3'></i></button>
     </div>
     
+    
     if(!personalAcc){
         userButtons = 
         <div className = 'flex items-center'>{!data.followed 
@@ -26,8 +27,10 @@ function Name({personalAcc, handle, data, followedUser}) {
     <div>
         <div className = 'flex items-center'>
             <span className = 'text-xl tracking-wide font-light'>{handle}</span>
-            {userButtons}       
+            {userButtons}
+            
         </div> 
+
     </div>
   )
 }

@@ -19,9 +19,9 @@ const User = ({name, location, picture}) => {
                     </div>
                 </div>
             </div>      
-            <a href="">
+            <button className = 'mx-5'>
                 <i className = "fa fa-ellipsis-h"></i>
-            </a>
+            </button>
         </div>
   )
 }
