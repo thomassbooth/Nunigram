@@ -5,7 +5,7 @@ import LoginButton from "./Auth0login";
 import { Link } from "react-router-dom";
 
 const Auth0Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading, logout } = useAuth0();
 
   if (isLoading) {
     return (
@@ -30,7 +30,7 @@ const Auth0Profile = () => {
             <p className = 'text-[13px] opacity-50 tracking-tight'>{user.name}</p>
           </div>
         </div>
-        <Link className = 'text-xs font-semibold tracking-tight text-blue-500 hover:text-blue-900'>Switch</Link>
+        <button onClick = {() => {logout()}} className = 'text-xs font-semibold tracking-tight text-blue-500 hover:text-blue-900'>Switch</button>
       </div>
     )
   );
