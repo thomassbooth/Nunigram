@@ -25,9 +25,6 @@ const Reactions = ({bookmark, onMark, liked, onLike, likes, name, caption}) => {
         <button className = "mb-1 text-sm font-semibold">
             {likes} likes
         </button>
-        <div className = "text-sm"> 
-            <Link to = {name} className = "font-semibold">{name}</Link> {caption}
-        </div>
     </div>
     
   )

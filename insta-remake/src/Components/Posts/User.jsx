@@ -12,7 +12,7 @@ const User = ({name, linkName, location, picture}) => {
                             {name}
                         </Link>
                     </div>
-                    <div className = "font-light">
+                    <div className = "font-light text-xs">
                         <a href = "">
                             {location}
                         </a>
