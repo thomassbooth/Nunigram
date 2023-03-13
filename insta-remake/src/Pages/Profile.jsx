@@ -44,21 +44,21 @@ function Profile() {
     function renderPosts() {
       switch(activeTab){
         case 'POSTS':
-          let posts = [{likes: 50, comments: 10}, {likes: 40, comments: 12}, {likes: 22, comments: 15}, {likes: 5, comments: 1}]
+          let posts = [{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'}]
           return (
             <div className = 'flex flex-wrap justify-between'>
               {posts.map((post) => {
-                  return <Post likes = {post.likes} comments = {post.comments} src = {'images/cat.jpg'}/>})}
+                  return <Post postData = {post} account = {profileData.nickname}/>})}
             </div>
           )
         case 'SAVED':
           return 'SAVED'
         case 'TAGGED':
-          let tags= [{likes: 50, comments: 10}, {likes: 40, comments: 12}, {likes: 22, comments: 15}, {likes: 5, comments: 1}]
+          let tags= [{likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}]
           return (
             <div className = 'flex flex-wrap justify-between'>
               {tags.map((tag) => {
-                  return <Post likes = {tag.likes} comments = {tag.comments} src = {'images/storm.jpeg'}/>})}
+                  return <Post postData = {tag} account = {tag.nickname}/>})}
             </div>
           )
         default:
@@ -72,6 +72,7 @@ function Profile() {
 
   return (
     <div className = 'w-4/5 flex justify-center'>
+      <title>{profileData.name}</title>
       <div className = 'w-[1000px]'>
         <About handle = {handle} data = {profileData} watchedStory = {watchedStory} followedUser = {followedUser}/>
         <div className = 'border-t mt-10'>
