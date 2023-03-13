@@ -29,7 +29,10 @@ function Post({postData, account}) {
           <img className = 'h-[600px]' src = {postData.src}></img>
           <div className = 'w-[450px] m-3'>
             <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-            <hr></hr>
+            <hr className = 'mt-5'></hr>
+          </div>
+          <div>
+            
           </div>
         </div>
           

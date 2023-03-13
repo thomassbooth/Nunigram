@@ -54,7 +54,7 @@ function Profile() {
         case 'SAVED':
           return 'SAVED'
         case 'TAGGED':
-          let tags= [{likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}, {likes: 50, comments: 10, src: 'images/storm.jpeg'}]
+          let tags= [{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'}]
           return (
             <div className = 'flex flex-wrap justify-between'>
               {tags.map((tag) => {
