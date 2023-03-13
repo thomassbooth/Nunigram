@@ -1,11 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Modal from '../../Containers/Modal'
 import Reactions from '../Posts/Reactions'
 import User from '../Posts/User'
 
+
 function Post({postData, account}) {
   const [isOpen, setIsOpen] = useState(false)
+  const commentRef = useRef()
+
+  function handleCommentClick() {
+    commentRef.current.focus()
+  }
 
   let postModalData = {
     comments: [],
@@ -35,23 +41,17 @@ function Post({postData, account}) {
 
             </div>
             <hr></hr>
-            <Reactions likes = {postData.likes}/>
+            <Reactions likes = {postData.likes} commentHandle = {handleCommentClick}/>
             <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
             <hr></hr>
-            <form action="POST">
-              <div className = 'mt-2 flex text-sm items-center'>
-                <i className = 'mx-2 text-lg fa fa-smile-o'></i>
-                <textarea rows = {1} placeholder = 'Add a comment...' className = 'w-[450px] mt-1 font-light outline-none resize-none'></textarea>
-                <button className = 'text-blue-500 text-sm'>Post</button>
-              </div>
-            </form>
+            <div className = 'mt-3 flex text-sm align-center'>
+              <button><i className = 'mx-2 text-lg fa fa-smile-o'></i></button>
+              <form action="POST" className = 'flex'>
+                <textarea ref = {commentRef} rows = {1} placeholder = 'Add a comment...' className = 'w-[380px] mt-1 font-light outline-none resize-none'></textarea>
+                <button type = 'submit' className = 'text-blue-500 text-sm px-1'>Post</button>
+              </form>
+            </div>
           </div>
-          <div>
-
-          </div>
-          
-            
-          
         </div>
           
         
