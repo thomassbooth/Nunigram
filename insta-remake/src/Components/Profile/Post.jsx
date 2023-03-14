@@ -37,10 +37,20 @@ function Post({postData, account}) {
           <div className = 'flex-col w-[450px] m-2'>
             <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
             <hr className = 'mt-3'></hr>
-            <div className='h-[380px]'>
-
+            <div className='h-[380px] overflow-auto'>
+              <div className = ''>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+              </div>
             </div>
-            <hr></hr>
+            <hr className = 'mt-1'></hr>
             <Reactions likes = {postData.likes} commentHandle = {handleCommentClick}/>
             <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
             <hr></hr>
