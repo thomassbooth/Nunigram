@@ -15,10 +15,11 @@ function Post({postData, account}) {
   }
 
   let postModalData = {
-    comments: [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}],
+    comments: [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}],
     caption: 'Home sweet home',
     location: 'Hatta Dam, Dubai, UAE',
     posted: 'JANUARY 20',
+    fromToday: '8w'
   }
 
   return (
@@ -38,16 +39,18 @@ function Post({postData, account}) {
           <div className = 'flex-col w-[450px] m-2'>
             <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
             <hr className = 'mt-3'></hr>
-            <div className='h-[380px] overflow-auto'>
+            <div className='h-[370px] overflow-auto'>
               <div className = ''>
+                {/* CAPTION OF THE POST  */}
+                <Comment account = {account} image = {'images/cat.jpg'} comment = {postModalData.caption} caption = {true} date = {postModalData.fromToday}/>
                 {postModalData.comments.map((comment) => {
                   return <Comment account = {comment.account} image = {comment.image} likes = {comment.likes} comment = {comment.comment} date = {comment.date}/>})}
               </div>
             </div>
-            <hr className = ''></hr>
+            <hr className = 'my-1'></hr>
             <Reactions likes = {postData.likes} commentHandle = {handleCommentClick}/>
             <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
-            <hr></hr>
+            <hr className = ''></hr>
             <div className = 'mt-3 flex text-sm align-center'>
               <button><i className = 'mx-2 text-lg fa fa-smile-o'></i></button>
               <form action="POST" className = 'flex'>
