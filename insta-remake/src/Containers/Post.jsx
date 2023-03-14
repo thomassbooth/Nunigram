@@ -1,6 +1,5 @@
 import React from 'react'
-import Image from '../Components/Posts/Image'
-import Comment from '../Components/Posts/Comment'
+
 import User from '../Components/Posts/User'
 import Reactions from '../Components/Posts/Reactions'
 import {useState} from 'react'

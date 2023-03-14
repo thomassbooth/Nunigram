@@ -8,7 +8,7 @@ const User = ({name, linkName, location, picture}) => {
                 <Link to = {name} className = 'mx-3'><img src = {picture} className = "rounded-full w-9 h-9"></img></Link>
                 <div>
                     <div>
-                        <Link to = {linkName} className = "font-semibold">
+                        <Link to = {'../' + linkName} relative = 'path' className = "font-semibold">
                             {name}
                         </Link>
                     </div>

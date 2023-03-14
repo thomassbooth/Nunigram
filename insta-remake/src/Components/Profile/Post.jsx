@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useRef } from 'react'
 import Modal from '../../Containers/Modal'
+import Comment from '../Posts/Comment'
 import Reactions from '../Posts/Reactions'
 import User from '../Posts/User'
 
@@ -14,7 +15,7 @@ function Post({postData, account}) {
   }
 
   let postModalData = {
-    comments: [],
+    comments: [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}],
     caption: 'Home sweet home',
     location: 'Hatta Dam, Dubai, UAE',
     posted: 'JANUARY 20',
@@ -39,18 +40,11 @@ function Post({postData, account}) {
             <hr className = 'mt-3'></hr>
             <div className='h-[380px] overflow-auto'>
               <div className = ''>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
-                <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+                {postModalData.comments.map((comment) => {
+                  return <Comment account = {comment.account} image = {comment.image} likes = {comment.likes} comment = {comment.comment} date = {comment.date}/>})}
               </div>
             </div>
-            <hr className = 'mt-1'></hr>
+            <hr className = ''></hr>
             <Reactions likes = {postData.likes} commentHandle = {handleCommentClick}/>
             <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
             <hr></hr>
