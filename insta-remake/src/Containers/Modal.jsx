@@ -22,9 +22,11 @@ function Modal({open, onClose, children}) {
     }, [open])
 
     return ReactDom.createPortal(
-        <div className = 'fixed flex top-0 left-0 right-0 bottom-0 justify-center items-center bg-black/70'>
+        <div className = 'fixed flex h-full w-full top-0 left-0 right-0 bottom-0 justify-center items-center bg-black/70'>
             <div ref = {ref} className = 'bg-white'>
+                <div>
                 {children}
+                </div>
             </div>
         </div>,
         document.getElementById('modal')
