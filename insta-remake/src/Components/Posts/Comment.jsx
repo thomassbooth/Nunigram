@@ -1,23 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Comment = ({account, image, likes, comment, date, caption = false}) => {
+const Comment = ({account, image, likes, comment, date, onClose, caption = false}) => {
 
   
 
   return (
       <div className = "justify-between flex items-center h-10 my-5 text-sm">
           <div className = "flex">
-              <Link to = {account} className = 'mx-3'><img src = {image} className = "rounded-full w-9 h-9"></img></Link>
+              <a href = {account} onClick = {() => {onClose()}} to = {account} className = 'mx-3'><img src = {image} className = "rounded-full w-9 h-9"></img></a>
               <div>
-                  <Link to = {'../' + account} relative = 'path' className = "font-semibold">
+                  <a href = {account} onClick = {() => {onClose()}} to = {'../' + account} relative = 'path' className = "font-semibold">
                       {account}
-                  </Link>
+                  </a>
                   <span> {comment}</span>
                   <div className = 'text-sm mt-1 space-x-3 opacity-50'>
                     <span>{date}</span>
                     {(!caption || likes == 0)
-                      ? <span className = 'font-medium'>{likes} {(likes == 1) ? {likes} + 'like' : 'likes'}</span>
+                      ? <span className = 'font-medium'>{likes} {(likes == 1) ? 'like' : 'likes'}</span>
                       : ''}
                   </div>
               </div>
