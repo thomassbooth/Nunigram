@@ -38,7 +38,7 @@ import { AuthenticationGuard } from './Components/Auth0/Authentication-guard'
         <div>
           <Nav/>
           <div className = 'w-screen flex justify-center'>
-            <div className = 'w-1/5'>
+            <div className = 'w-1/6'>
             </div>
             <Outlet/>
           </div> 

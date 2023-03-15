@@ -71,7 +71,7 @@ function Profile() {
 
 
   return (
-    <div className = 'w-4/5 flex justify-center'>
+    <div className = 'w-5/6 flex justify-center'>
       <title>{profileData.name}</title>
       <div className = 'w-[1000px]'>
         <About handle = {handle} data = {profileData} watchedStory = {watchedStory} followedUser = {followedUser}/>
