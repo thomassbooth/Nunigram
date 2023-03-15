@@ -9,7 +9,7 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className=' fixed w-1/5 h-screen bg-white border-gray-300 border-r-[1px]'>
+    <div className=' fixed w-1/6 h-screen bg-white border-gray-300 border-r-[1px]'>
       {isAuthenticated ? <nav className = 'flex flex-col px-3 pl-5 border-b-1'>
           <Title/>
           <Navlink text = {"Home"} icon = {"fa-home"} link = '/' />
