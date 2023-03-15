@@ -1,8 +1,17 @@
 import React from 'react'
 
 function Messages() {
+  document.body.style.overflow = 'hidden' 
   return (
-    <div>Messages</div>
+    <div className = 'w-4/5 h-screen bg-gray-50'>
+      <div className = 'p-6 h-full w-full flex justify-center'>
+        <div className = 'h-full border border-gray-300 rounded w-[1000px] bg-white'>
+          <div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
