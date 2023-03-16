@@ -30,7 +30,9 @@ function Messages() {
                 {user && <button><span className = 'font-medium'>{user.nickname} <i className = 'text-[28px] fa fa-lg fa-angle-down'></i></span></button>}
               </div>
               <div className = 'w-1/5 flex justify-center'>
-                <button><span><i className = 'text-[30px] fa fa-pencil-square-o'></i></span></button>
+                <button>
+                  <span><i className = 'text-[30px] fa fa-pencil-square-o opacity-80 mt-1'></i></span>
+                </button>
               </div>
             </div>
             {/* box for left messages */}
