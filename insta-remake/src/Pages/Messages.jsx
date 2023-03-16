@@ -48,8 +48,8 @@ function Messages() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                       </svg>
                     </div>
-                    <p className = 'text-[25px] font-[350]'>Your Messages</p>
-                    <p className = 'text-sm font opacity-50'>Send private photos and messages to a friend or group</p>
+                    <p className = 'text-[23px] font-[350]'>Your Messages</p>
+                    <p className = 'text-sm font opacity-50'>Send private photos and messages to a friend or group.</p>
                     <button className = 'text-white text-sm font-medium px-3 py-2 bg-blue-400 hover:bg-blue-500 rounded-lg mt-4'> 
                       Send Message 
                     </button>
