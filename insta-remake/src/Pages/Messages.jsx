@@ -5,7 +5,7 @@ import Message from '../Components/Messages/Message'
 
 function Messages() {
   const {isAuthenticated, user} = useAuth0()
-  const [messages, setMessages] = useState({})
+  const [messages, setMessages] = useState([{},{},{},{},{},{},{},{},{},])
   const [openMessage, setOpenMessage] = useState('')
 
   useEffect(() => {
@@ -27,17 +27,20 @@ function Messages() {
             <div className = 'flex items-center h-[60px] border-b border-gray-300'>
               <div className = 'w-1/5'></div>
               <div className = 'w-3/5 flex justify-center'>
-                {user && <button><span className = 'font-medium'>{user.nickname} <i className = 'text-[28px] fa fa-lg fa-angle-down'></i></span></button>}
+                {user && <button><span className = 'font-medium'>{user.nickname} <i className = 'ml-2 text-[30px] fa fa-lg fa-angle-down'></i></span></button>}
               </div>
               <div className = 'w-1/5 flex justify-center'>
                 <button>
-                  <span><i className = 'text-[30px] fa fa-pencil-square-o opacity-80 mt-1'></i></span>
+                  <span><i className = 'text-[27px] fa fa-pencil-square-o opacity-90 mt-1'></i></span>
                 </button>
               </div>
             </div>
             {/* box for left messages */}
             <div>
-              <Message/>
+              {messages.map(() => {
+                return <Message/>
+              })
+              }
             </div>
           </div>
           {/* right hand side */}
