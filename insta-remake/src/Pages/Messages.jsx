@@ -49,7 +49,7 @@ function Messages() {
                       </svg>
                     </div>
                     <p className = 'text-[25px] font-[350]'>Your Messages</p>
-                    <p className = 'text-sm font-light opacity-50'>Send private photos and messages to a friend or group</p>
+                    <p className = 'text-sm font opacity-50'>Send private photos and messages to a friend or group</p>
                     <button className = 'text-white text-sm font-medium px-3 py-2 bg-blue-400 hover:bg-blue-500 rounded-lg mt-4'> 
                       Send Message 
                     </button>
