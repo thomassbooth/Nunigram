@@ -22,7 +22,7 @@ function Messages() {
 
         <div className = 'flex h-full border border-gray-300 rounded-sm w-[1000px] bg-white'>
           {/* left hand side */}
-          <div className = 'w-[350px] border-r border-gray-300 h-full'>
+          <div className = 'w-[350px] border-r border-gray-300 h-full overflow-y-auto'>
             {/* the box for the top left, name and create new message */}
             <div className = 'flex items-center h-[60px] border-b border-gray-300'>
               <div className = 'w-1/5'></div>
@@ -36,7 +36,7 @@ function Messages() {
               </div>
             </div>
             {/* box for left messages */}
-            <div>
+            <div className = 'mt-2'>
               {messages.map(() => {
                 return <Message/>
               })

@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Message() {
+function Message({image = 'images/cat.jpg'}) {
   return (
     <div>
-        <img></img>
+        <img src = {image} className = ' h-14 rounded-full'></img>
     </div>
   )
 }
