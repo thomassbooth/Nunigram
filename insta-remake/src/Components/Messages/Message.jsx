@@ -2,7 +2,9 @@ import React from 'react'
 
 function Message() {
   return (
-    <div>Message</div>
+    <div>
+        <img></img>
+    </div>
   )
 }
 
