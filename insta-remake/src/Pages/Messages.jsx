@@ -5,7 +5,7 @@ import Message from '../Components/Messages/Message'
 
 function Messages() {
   const {isAuthenticated, user} = useAuth0()
-  const [messages, setMessages] = useState([{},{},{},{},{},{},{},{},{},])
+  const [messages, setMessages] = useState([{name: 'domhedgetrim', image: 'images/cat.jpg' }, {name: 'poopni', image: 'images/cat.jpg' }, {name: 'thomassbooth', image: 'images/cat.jpg' }, {name: 'DaveyP', image: 'images/cat.jpg' }, {name: 'nunipooni', image: 'images/cat.jpg' }])
   const [openMessage, setOpenMessage] = useState('')
 
   useEffect(() => {
@@ -37,9 +37,9 @@ function Messages() {
             </div>
             {/* box for left messages */}
             
-            <div className = 'mt-2 h-[88%] overflow-y-auto'>
-              {messages.map(() => {
-                return <Message/>
+            <div className = 'mt-2 h-[89%] overflow-y-auto'>
+              {messages.map((messageData) => {
+                return <Message messageData = {messageData} openMessage = {openMessage} setOpenMessage = {(name)=> {setOpenMessage(name)}}/>
               })
               }
             </div>
