@@ -12,7 +12,8 @@ function Message({messageData, openMessage, setOpenMessage}) {
         <div className = 'flex items-center'>
             <img src = {messageData.image} className = ' h-14 rounded-full ml-5 mr-3 border border-gray-400'></img>
             <div>
-                <span className = 'font-normal text-sm'>{messageData.name}</span>
+                <p className = 'font-normal text-sm'>{messageData.name}</p>
+                <p className = 'font-normal text-sm opacity-40'>Active {messageData.active}</p>
             </div>
         </div>
         

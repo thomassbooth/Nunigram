@@ -8,13 +8,13 @@ const Center = () => {
     let storyId = 0;
     let postId = 0;
     let postsData = [{
-        "image": "images/cat.jpg",
+        "src": "images/cat.jpg",
         "likes": 123,
         "liked": false,
         "caption": "its me dave guys",
         "profile": {
             "name": "thomassboothh",
-            "picture": "",
+            "src": "images/cat.jpg",
             "location": "Brighton"
         },
         "comments": {
@@ -23,13 +23,13 @@ const Center = () => {
         }
     },
     {
-        "image": "images/cat.jpg",
+        "src": "images/cat.jpg",
         "likes": 123,
         "liked": false,
         "caption": "wagwan my drilla",
         "profile": {
             "name": "defo not dave",
-            "picture": "",
+            "src": "images/storm.jpeg",
             "location": ""
         },
         "comments": {

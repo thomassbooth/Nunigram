@@ -5,7 +5,9 @@ import Message from '../Components/Messages/Message'
 
 function Messages() {
   const {isAuthenticated, user} = useAuth0()
-  const [messages, setMessages] = useState([{nickname: 'domhedgetrim', name: 'Dom Hedges', image: 'images/cat.jpg' }, {nickname: 'poopni', name: 'poopni', image: 'images/storm.jpeg' }, {nickname: 'thomassbooth', name: 'Thomas Booth', image: 'images/cat.jpg' }, {nickname: 'DaveyP', name: 'Dave Payne', image: 'images/cat.jpg' }, {nickname: 'marioLinderrr', name: 'Marius Lindberg', image: 'images/cat.jpg' }])
+  const [messages, setMessages] = useState([{nickname: 'domhedgetrim', active: '8m ago', name: 'Dom Hedges', image: 'images/cat.jpg' }, 
+  {nickname: 'poopni', name: 'poopni', active: '3h ago', image: 'images/storm.jpeg' }, {nickname: 'thomassbooth', name: 'Thomas Booth', active: '2h ago', image: 'images/cat.jpg' }, 
+  {nickname: 'DaveyP', name: 'Dave Payne', active: '1w ago', image: 'images/cat.jpg' }, {nickname: 'marioLinderrr', name: 'Marius Lindberg', active: '1d ago', image: 'images/cat.jpg' }])
   const [openMessage, setOpenMessage] = useState('')
 
   useEffect(() => {
@@ -65,7 +67,10 @@ function Messages() {
                   <div className = 'h-[60px] border-b border-gray-300 flex justify-between items-center'>
                     <div className = 'flex items-center ml-9'>
                       <img src = {openMessage.image} className = 'mr-3 rounded-full w-7 h-7'></img>
-                      <span className = 'font-medium'>{openMessage.name}</span>
+                      <div>
+                        <span className = 'font-medium'>{openMessage.name}</span>
+                        <p className = 'font-light text-xs opacity-40 '>Active {openMessage.active}</p>
+                      </div>
                     </div>
                     <div className = 'flex space-x-4 mr-6'>
                       <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">

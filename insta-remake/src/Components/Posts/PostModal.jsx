@@ -6,6 +6,8 @@ import User from './User'
 function PostModal({postModalData, account}) {
     const commentRef = useRef()
 
+    const comments =  [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'davepayne52', image: 'images/cat.jpg', likes: 1, comment: 'looking sexy my friend', date: '5w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}]
+
   function handleCommentClick() {
     commentRef.current.focus()
   }
@@ -20,7 +22,7 @@ function PostModal({postModalData, account}) {
             <div className = ''>
             {/* CAPTION OF THE POST  */}
             <Comment account = {account} image = {'images/cat.jpg'} comment = {postModalData.caption} caption = {true} date = {postModalData.fromToday}/>
-            {postModalData.comments.map((comment) => {
+            {comments.map((comment) => {
                 return <Comment account = {comment.account} image = {comment.image} likes = {comment.likes} comment = {comment.comment} date = {comment.date} onClose = {() => {setIsOpen(false)}}/>})}
             </div>
         </div>
