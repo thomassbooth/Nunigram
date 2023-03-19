@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const Navlink = ({text, icon, img, link}) => {
+const Navlink = ({text, icon, img, link, setCreateOpen}) => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     let profileImg = ''
     if (isLoading && img === true) {
@@ -16,7 +16,7 @@ const Navlink = ({text, icon, img, link}) => {
     className += icon;
 
   return (
-    <Link to = {link}>
+    <Link to = {link} onClick = {() => {if (text === 'Create'){setCreateOpen(true)}}}>
       <div className='hover:bg-slate-50 my-2 rounded-full py-2 px-3 button flex items-center'>
           {img === true ? profileImg : <i className={className}></i>}{text}
       </div>
