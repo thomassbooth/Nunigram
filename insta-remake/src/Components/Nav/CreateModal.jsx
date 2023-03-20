@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function CreateModal() {
     const {isAuthenticated, isLoading, user} = useAuth0();
-    const inputRef = useRef(null)
+    const fileInputRef = useRef(null)
     const [selectedFile, setSelectedFile] = useState({picFile: '', imagePreviewUrl: ''})
     const [imageSelected, setSelected] = useState(false)
     const [caption, setCaption] = useState('')
@@ -56,8 +56,8 @@ function CreateModal() {
                 </div>
             </div>
             <p className = 'mt-4'>Drag photos and videos here</p>
-            <input ref = {inputRef} type="file" style={{ display: "none" }} onChange = {fileHandler}/>
-            <button className = 'py-1 px-2 rounded-lg hover:bg-blue-600 bg-blue-500 mt-4' onClick={() => inputRef.current.click()}>
+            <input ref = {fileInputRef} type="file" style={{ display: "none" }} onChange = {fileHandler}/>
+            <button className = 'py-1 px-2 rounded-lg hover:bg-blue-600 bg-blue-500 mt-4' onClick={() => fileInputRef.current.click()}>
                 <span className = 'text-sm text-white font-medium'>Select from computer</span>
             </button>
             
