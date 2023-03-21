@@ -8,6 +8,7 @@ function CreateModal() {
     const {isAuthenticated, isLoading, user} = useAuth0();
     const fileInputRef = useRef(null)
     const altTextRef = useRef(null)
+    const [tags, setTags] = useState([])
     const [selectedFile, setSelectedFile] = useState({picFile: '', imagePreviewUrl: ''})
     const [imageSelected, setSelected] = useState(false)
     const [caption, setCaption] = useState('')
@@ -16,6 +17,15 @@ function CreateModal() {
 
 
     const caption_change = (e) => {setCaption(e.target.value)}
+
+    const add_tag = (e) => {
+        console.log(e)
+        let coords = e.target.getBoundingClientRect()
+        
+        let xRelation = coords.right - 560;
+        let yRelation = coords.bottom - 560;
+        setTags([...tags, {x: xRelation, y: yRelation}])
+    }
 
     const fileHandler =  (e) => {
         setSelectedFile(e.target.files[0]);
@@ -65,7 +75,10 @@ function CreateModal() {
             
         </div>
         :   <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} className = 'flex'>
-                <img className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
+                {tags.map((tag) => {
+                    console.log(tag)
+                })}
+                <img onClick = {add_tag} className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
                 <div className = 'h-[560px] overflow-y-auto w-[340px]'>
                     {isAuthenticated 
                     ? <button className = 'h-[40px] m-3 flex items-center'>
@@ -76,7 +89,7 @@ function CreateModal() {
                         <div className = 'w-8 h-8 rounded-full bg-gray-400'></div>
                         <span className = 'ml-3 text-sm font-medium'>{user.nickname}</span>
                     </div>}
-                    <textarea onChange = {caption_change} rows = {1} maxlength = '2200' placeholder = 'Write a caption...' className = 'h-[150px] mx-3 font-light outline-none resize-none'/>
+                    <textarea onChange = {caption_change} rows = {1} maxLength = '2200' placeholder = 'Write a caption...' className = 'h-[150px] mx-3 font-light outline-none resize-none'/>
                     <div className = 'flex items-center justify-between m-3 text-xs opacity-30'>
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
