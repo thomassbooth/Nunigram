@@ -12,6 +12,7 @@ function CreateModal() {
     const [imageSelected, setSelected] = useState(false)
     const [caption, setCaption] = useState('')
     const [accessibility, setAccessibility] = useState(false)
+    const [advanced, setAdvanced] = useState(false)
 
 
     const caption_change = (e) => {setCaption(e.target.value)}
@@ -109,6 +110,7 @@ function CreateModal() {
                         <span className = 'font-light'>Advanced Settings</span>
                         <i className = {'ml-2 text-[25px] fa fa-lg fa-angle-down' }></i>
                     </button>
+                    
                 </div>
             </motion.div>}
     </div>
