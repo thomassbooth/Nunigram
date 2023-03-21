@@ -3,11 +3,14 @@ import React from 'react'
 import {useRef, useState} from 'react'
 import {motion} from 'framer-motion'
 import { useAuth0 } from '@auth0/auth0-react'
+import TagIcon from './TagIcon';
 
 function CreateModal() {
     const {isAuthenticated, isLoading, user} = useAuth0();
     const fileInputRef = useRef(null)
     const altTextRef = useRef(null)
+    const imgRef = useRef(null)
+    const [previousEmpty, setPreviousEmpty] = useState(false)
     const [tags, setTags] = useState([])
     const [selectedFile, setSelectedFile] = useState({picFile: '', imagePreviewUrl: ''})
     const [imageSelected, setSelected] = useState(false)
@@ -19,12 +22,8 @@ function CreateModal() {
     const caption_change = (e) => {setCaption(e.target.value)}
 
     const add_tag = (e) => {
-        console.log(e)
         let coords = e.target.getBoundingClientRect()
-        
-        let xRelation = coords.right - 560;
-        let yRelation = coords.bottom - 560;
-        setTags([...tags, {x: xRelation, y: yRelation}])
+        setTags([...tags, {x: e.clientX - coords.left, y: e.clientY - coords.bottom}])
     }
 
     const fileHandler =  (e) => {
@@ -76,9 +75,10 @@ function CreateModal() {
         </div>
         :   <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} className = 'flex'>
                 {tags.map((tag) => {
-                    console.log(tag)
+                    let coords = imgRef.current.getBoundingClientRect()
+                    return <TagIcon x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)}/>
                 })}
-                <img onClick = {add_tag} className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
+                <img ref = {imgRef} onClick = {add_tag} className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
                 <div className = 'h-[560px] overflow-y-auto w-[340px]'>
                     {isAuthenticated 
                     ? <button className = 'h-[40px] m-3 flex items-center'>
