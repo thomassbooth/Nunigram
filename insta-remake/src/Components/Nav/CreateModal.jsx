@@ -7,13 +7,14 @@ import { useAuth0 } from '@auth0/auth0-react'
 function CreateModal() {
     const {isAuthenticated, isLoading, user} = useAuth0();
     const fileInputRef = useRef(null)
+    const altTextRef = useRef(null)
     const [selectedFile, setSelectedFile] = useState({picFile: '', imagePreviewUrl: ''})
     const [imageSelected, setSelected] = useState(false)
     const [caption, setCaption] = useState('')
-    
-    const caption_change = (e) => {
-        setCaption(e.target.value)
-    }
+    const [accessibility, setAccessibility] = useState(false)
+
+
+    const caption_change = (e) => {setCaption(e.target.value)}
 
     const fileHandler =  (e) => {
         setSelectedFile(e.target.files[0]);
@@ -63,8 +64,8 @@ function CreateModal() {
             
         </div>
         :   <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} className = 'flex'>
-                <img className = ' h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
-                <div className = 'flex flex-col w-[340px]'>
+                <img className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
+                <div className = 'h-[560px] overflow-y-auto w-[340px]'>
                     {isAuthenticated 
                     ? <button className = 'h-[40px] m-3 flex items-center'>
                         <img className = 'w-8 h-8 rounded-full border border-gray-400' src = {user.picture}></img>
@@ -74,7 +75,7 @@ function CreateModal() {
                         <div className = 'w-8 h-8 rounded-full bg-gray-400'></div>
                         <span className = 'ml-3 text-sm font-medium'>{user.nickname}</span>
                     </div>}
-                    <textarea onChange = {caption_change} rows = {1} placeholder = 'Write a caption' className = 'h-[150px] mx-3 font-light outline-none resize-none'/>
+                    <textarea onChange = {caption_change} rows = {1} maxlength = '2200' placeholder = 'Write a caption...' className = 'h-[150px] mx-3 font-light outline-none resize-none'/>
                     <div className = 'flex items-center justify-between m-3 text-xs opacity-30'>
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -90,15 +91,23 @@ function CreateModal() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                         </svg>
-
                     </div>
-                    <button className = 'px-3 border-b h-[50px] flex justify-between items-center'>
-                        <span className = 'font-light'>Accessibility</span>
-                        <i className = 'ml-2 text-[25px] fa fa-lg fa-angle-down'></i>
+                    <button onClick = {() => {setAccessibility(!accessibility)}} className = 'w-[340px] px-3 h-[50px] flex justify-between items-center'>
+                        <span className = {!accessibility ? 'font-light' : 'font-medium'}>Accessibility</span>
+                        <i className = {'ml-2 text-[25px] fa fa-lg fa-angle-down ' + (accessibility && 'rotate-180')} ></i>
                     </button>
-                    <button className = 'px-3 border-b h-[50px] flex justify-between items-center'>
+                    {accessibility 
+                    && <div className = 'mx-3'>
+                        <p className = 'font-light text-xs opacity-40 leading-tight'>Alt text describes your photos for people with visual impairments. Alt text
+                            will be automatically created for your photos or you can chose to write your own.</p>
+                        <div className = 'flex mt-3 mb-4'>
+                            <img className = 'ml-1 h-12 w-12'src = {selectedFile.imagePreviewUrl}></img>
+                            <input ref = {altTextRef} placeholder = 'Write alt text...' className = 'text-sm ml-2 pl-3 border-gray-300 outline-gray-300 border rounded-lg w-full font-light'/>
+                        </div>
+                    </div>}
+                    <button className = 'px-3 border-y h-[50px] w-[340px] flex justify-between items-center'>
                         <span className = 'font-light'>Advanced Settings</span>
-                        <i className = 'ml-2 text-[25px] fa fa-lg fa-angle-down'></i>
+                        <i className = {'ml-2 text-[25px] fa fa-lg fa-angle-down' }></i>
                     </button>
                 </div>
             </motion.div>}
