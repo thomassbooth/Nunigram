@@ -18,7 +18,7 @@ function Messages() {
   }, [])
 
   return (
-    <div className = 'w-screen h-screen bg-gray-50'>
+    <div className = 'w-5/6 h-screen bg-gray-50'>
       {/* make a margin around the page and make it flex so it sits in the middle*/}
       <div className = 'py-6 h-full w-full flex justify-center'>
 
