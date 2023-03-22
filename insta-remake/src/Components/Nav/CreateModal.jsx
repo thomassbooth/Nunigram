@@ -10,7 +10,6 @@ function CreateModal() {
     const fileInputRef = useRef(null)
     const altTextRef = useRef(null)
     const imgRef = useRef(null)
-    const [previousEmpty, setPreviousEmpty] = useState(false)
     const [tags, setTags] = useState([])
     const [selectedFile, setSelectedFile] = useState({picFile: '', imagePreviewUrl: ''})
     const [imageSelected, setSelected] = useState(false)
@@ -22,8 +21,22 @@ function CreateModal() {
     const caption_change = (e) => {setCaption(e.target.value)}
 
     const add_tag = (e) => {
+        if (tags.length > 0){
+            let last = tags[tags.length - 1]
+            if (last.submitted == false){tags.pop()}
+        }
+        
         let coords = e.target.getBoundingClientRect()
-        setTags([...tags, {x: e.clientX - coords.left, y: e.clientY - coords.bottom}])
+        setTags([...tags, {x: e.clientX - coords.left, y: e.clientY - coords.bottom, submitted: false}])
+    }
+
+    const submit_tag = (id) => {
+        let test = tags[id]
+        test.submitted = true
+        setTags(tags.map((tag, index) => {
+            if(index == id){tag.submitted = true}
+            return tag
+        }))
     }
 
     const fileHandler =  (e) => {
@@ -74,9 +87,10 @@ function CreateModal() {
             
         </div>
         :   <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} className = 'flex'>
-                {tags.map((tag) => {
+                {tags.map((tag, index) => {
                     let coords = imgRef.current.getBoundingClientRect()
-                    return <TagIcon x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)}/>
+                    console.log(tag)
+                    return <TagIcon key = {index} id = {index} x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)} submit_tag = {submit_tag}/>
                 })}
                 <img ref = {imgRef} onClick = {add_tag} className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
                 <div className = 'h-[560px] overflow-y-auto w-[340px]'>
