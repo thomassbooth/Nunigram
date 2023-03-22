@@ -1,12 +1,3 @@
-
-
-### Tools Used:
-
-- ReactJS
-- Tailwind CSS
-- OAuth Integrations for login
-- React Router
-
 # Nunigram
 
 A Front end for an instagram recreation.
@@ -30,6 +21,13 @@ or
 docker build -t NAME .
 docker run -p 808:8080 name:tag
 ```
+## Tools Used:
+
+- ReactJS
+- Tailwind CSS
+- OAuth
+- Jwt
+- React Router
 
 ## Contributing
 
