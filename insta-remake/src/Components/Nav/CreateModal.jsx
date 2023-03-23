@@ -10,6 +10,7 @@ function CreateModal() {
     const fileInputRef = useRef(null)
     const altTextRef = useRef(null)
     const imgRef = useRef(null)
+    const [showTags, setShowTags] = useState(true)
     const [tags, setTags] = useState([])
     const [selectedFile, setSelectedFile] = useState({picFile: '', imagePreviewUrl: ''})
     const [imageSelected, setSelected] = useState(false)
@@ -29,6 +30,7 @@ function CreateModal() {
         let coords = e.target.getBoundingClientRect()
         setTags([...tags, {x: e.clientX - coords.left, y: e.clientY - coords.bottom, account: {},  submitted: false}])
     }
+    const toggleTags = () => {setShowTags(!showTags)}
 
     const submit_tag = (id, account) => {
         let test = tags[id]
@@ -39,6 +41,13 @@ function CreateModal() {
                 tag.account = {name: account.name, nick: account.nick}
             }
             return tag
+        }))
+    }
+    const removeTag = (id) => {
+        setTags(tags.filter((tag, index) => {
+            console.log(index)
+            console.log(id)
+            return index !== id
         }))
     }
 
@@ -90,11 +99,18 @@ function CreateModal() {
             
         </div>
         :   <motion.div initial = {{opacity: 0}} animate = {{opacity: 1}} className = 'flex'>
-                {tags.map((tag, index) => {
+                {/* Check if we show the tags if true then we render them */}
+                {showTags && tags.map((tag, index) => {
                     let coords = imgRef.current.getBoundingClientRect()
-                    console.log(tag)
-                    return <TagIcon account = {tag.account} key = {index} id = {index} x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)} submitted = {tag.submitted} submit_tag = {submit_tag}/>
+                    return <TagIcon removeTag = {removeTag} account = {tag.account} key = {index} id = {index} x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)} submitted = {tag.submitted} submit_tag = {submit_tag}/>
                 })}
+                {/* Show tags or not (only appears when one is in list) */}
+                {tags.length !== 0 && 
+                <button onClick = {toggleTags} id = 'tag icon' className = 'm-4 absolute bg-gray-800 flex items-center justify-center w-8 h-8 rounded-full'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+                        <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                    </svg>
+                </button>}
                 <img ref = {imgRef} onClick = {add_tag} className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
                 <div className = 'h-[560px] overflow-y-auto w-[340px]'>
                     {isAuthenticated 
@@ -106,7 +122,7 @@ function CreateModal() {
                         <div className = 'w-8 h-8 rounded-full bg-gray-400'></div>
                         <span className = 'ml-3 text-sm font-medium'>{user.nickname}</span>
                     </div>}
-                    <textarea onChange = {caption_change} rows = {1} maxLength = '2200' placeholder = 'Write a caption...' className = 'h-[150px] mx-3 font-light outline-none resize-none'/>
+                    <textarea onChange = {caption_change} rows = {1} maxLength = '2200' placeHolder = 'Write a caption...' className = 'h-[150px] mx-3 font-light outline-none resize-none'/>
                     <div className = 'flex items-center justify-between m-3 text-xs opacity-30'>
                         <button className = 'z-0'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
