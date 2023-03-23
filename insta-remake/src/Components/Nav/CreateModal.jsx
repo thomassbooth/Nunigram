@@ -27,14 +27,17 @@ function CreateModal() {
         }
         
         let coords = e.target.getBoundingClientRect()
-        setTags([...tags, {x: e.clientX - coords.left, y: e.clientY - coords.bottom, submitted: false}])
+        setTags([...tags, {x: e.clientX - coords.left, y: e.clientY - coords.bottom, account: {},  submitted: false}])
     }
 
-    const submit_tag = (id) => {
+    const submit_tag = (id, account) => {
         let test = tags[id]
         test.submitted = true
         setTags(tags.map((tag, index) => {
-            if(index == id){tag.submitted = true}
+            if(index == id){
+                tag.submitted = true
+                tag.account = {name: account.name, nick: account.nick}
+            }
             return tag
         }))
     }
@@ -90,7 +93,7 @@ function CreateModal() {
                 {tags.map((tag, index) => {
                     let coords = imgRef.current.getBoundingClientRect()
                     console.log(tag)
-                    return <TagIcon key = {index} id = {index} x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)} submitted = {tag.submitted} submit_tag = {submit_tag}/>
+                    return <TagIcon account = {tag.account} key = {index} id = {index} x = {tag.x + (coords.left)} y = {tag.y + (coords.bottom)} submitted = {tag.submitted} submit_tag = {submit_tag}/>
                 })}
                 <img ref = {imgRef} onClick = {add_tag} className = 'border-r-[1px] border-gray-300 h-[560px] w-[560px]'src = {selectedFile.imagePreviewUrl}></img>
                 <div className = 'h-[560px] overflow-y-auto w-[340px]'>
