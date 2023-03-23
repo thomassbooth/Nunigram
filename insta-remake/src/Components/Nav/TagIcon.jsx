@@ -8,8 +8,13 @@ function TagIcon({account, id, x, y, submitted, submit_tag}) {
   return (
     <div>
     {submitted 
-    ? <div className = 'h-[30px] w-[100px] text-white bg-gray-700 rounded-lg absolute flex' style ={{left: x-50, top: y}}>
-        <span>{account.nick}</span>
+    ? <div className = ' text-white bg-black opacity-80 flex items-center rounded-lg absolute' style ={{left: x-50, top: y-5}}>
+        <div className = ' bg-black w-[15px] h-[11px] rotate-45 absolute -translate-y-4 translate-x-10'>
+        </div>
+        <div className = 'mx-5 my-2'>
+          <p className = 'font-medium'>{account.nick}</p>
+          <span></span>
+        </div>
     </div>
 
     : <div className = 'w-[300px] shadow-xl z-10 bg-white rounded-lg absolute border' style ={{left: x-29, top: y+8}}>
