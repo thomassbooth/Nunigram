@@ -22,7 +22,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen}) => {
       setSmall()}}>
       <div className='hover:bg-slate-50 my-2 rounded-full py-2 px-3 button flex items-center'>
       {img === true ? profileImg : <i className={className}></i>}
-      <motion.span 
+      <motion.span
       variants={{
         open: { opacity: 100 },
         closed: { opacity: 0, fontSize: 0 }

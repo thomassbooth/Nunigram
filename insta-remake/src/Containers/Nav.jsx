@@ -47,7 +47,7 @@ const Nav = () => {
     //         </Modal> : null}
     //   </div>
     <div className = 'flex'>
-      <motion.div ref = {navRef} className=' fixed w-1/6 max-w-[380px] z-0 h-screen bg-white border-gray-300 border-r-[1px]'
+      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-0 h-screen bg-white border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
@@ -59,7 +59,7 @@ const Nav = () => {
                 <Navlink setSmall = {() => {setSmall(true)}} text = {"Messages"} icon = {"fa-paper-plane-o"} link = '/message' />
                 <Navlink setSmall = {makeNavSmall} text = {"Notifications"} icon = {"fa-heart-o"}/>
                 <Navlink setSmall = {() => {}} text = {"Create"} icon = {"fa-plus-square-o"} setCreateOpen = {setCreateOpen}/>
-                <Navlink text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
+                <Navlink setSmall = {() => {setSmall(true)}} text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
               </nav> : <div className = 'pl-5 border-b-1'></div>}
               {createOpen ? 
               <Modal modalClass = {'bg-white rounded-lg'} open = {createOpen} onClose = {() => {setCreateOpen(false)}}>
