@@ -10,7 +10,7 @@ function Notifications() {
         <motion.div className = 'bg-white border-r '
         variants = {{
             open: { opacity: 0, font: 0, width: 0},
-            closed: { opacity: 100, width: `${screen.width/6}px`}
+            closed: { opacity: 100, width: `${screen.width/7}px`}
           }}
           transition={{ duration: 0.2 }}>
             Notifications
