@@ -45,8 +45,6 @@ function CreateModal() {
     }
     const removeTag = (id) => {
         setTags(tags.filter((tag, index) => {
-            console.log(index)
-            console.log(id)
             return index !== id
         }))
     }

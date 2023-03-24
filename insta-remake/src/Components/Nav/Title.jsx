@@ -4,8 +4,8 @@ import LoginButton from '../Auth0/Auth0login'
 const Title = ({type}) => {
   return (
     <div className = 'flex items-center h-20 pl-3'>
-        <Link className = 'w-52'>
-            Nunigram
+        <Link className = ''>
+            N
         </Link>
     </div>
   )
