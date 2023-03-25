@@ -27,7 +27,9 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
       }
       setSmall()}}>
       <motion.div className='hover:bg-slate-50 my-2 h-[50px] rounded-full py-2 px-3 button flex items-center'
-      variants={borderVarients}>
+      variants={borderVarients}
+      transition={{ duration: 0.1 }}>
+        
       {img === true ? profileImg : <i className={className}></i>}
       <motion.span className = 'ml-5'
       variants={{
