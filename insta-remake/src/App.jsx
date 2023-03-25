@@ -35,7 +35,7 @@ import { AuthenticationGuard } from './Components/Auth0/Authentication-guard'
   const Root = () => {
     return(
       <>
-        <div>
+        <div className = 'dark:bg-black dark:text-white'>
           <Nav/>
           <div className = 'w-screen flex justify-center'>
             <div className = 'w-1/6'>
