@@ -49,14 +49,14 @@ const Nav = () => {
     //           <CreateModal/>
     //         </Modal> : null}
     //   </div>
-    <div className = 'flex '>
-      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-0 h-screen bg-white dark:bg-black border-gray-300 border-r-[1px]'
+    <div className = 'flex'>
+      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-0 h-screen bg-white border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
             {isAuthenticated ? <nav className = 'flex flex-col px-3 pl-5 border-b-1'>
                 <Title/>
-                <button onClick = {handleMode}>Dark</button>
+                {/* <button onClick = {handleMode}>Dark</button> */}
                 <Navlink setSmall = {() => {setSmall(true)}} text = {"Home"} icon = {"fa-home"} link = '/' />
                 <Navlink setSmall = {() => {setSmall(true)}} text = {"Search"} icon = {"fa-search"} link = '/' />
                 <Navlink setSmall = {() => {setSmall(true)}} text = {"Explore"} icon = {"fa-compass"} link = '/explore' />

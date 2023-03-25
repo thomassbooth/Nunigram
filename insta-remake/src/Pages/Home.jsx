@@ -4,7 +4,7 @@ import Center from '../Containers/Center'
 
 function Home() {
   return (
-    <div>
+    <div className = ''>
         <Center/>
     </div>
   )
