@@ -12,6 +12,13 @@
     transform-origin: 50% 50%;
 }
 
+.white-content {
+    background: white;
+  }
+
+.black-content {
+    background: black;
+}
 .button:hover img{
     /* font-size: 1.1em;
     transition: .2s ease-out; */
