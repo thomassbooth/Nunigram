@@ -6,16 +6,15 @@ import { motion, sync, useCycle, useInView } from "framer-motion";
 import Modal from './Modal'
 import CreateModal from '../Components/Nav/CreateModal'
 import Notifications from '../Components/Nav/Notifications';
-import useDarkMode from '../Hooks/useDarkMode';
+import More from '../Components/Nav/More';
 
 const Nav = () => {
   const {user, isAuthenticated} = useAuth0()
-  const navRef = useRef(null)
-  const isInView = useInView(navRef, {once: true})
+  const moreRef = useRef()
   const [createOpen, setCreateOpen] = useState(false)
   const [smallNav, setSmall] = useState(true)
-  const [darkTheme, setDarkTheme] = useDarkMode();
-  const handleMode = () => setDarkTheme(!darkTheme);
+  const [more, setMore] = useState(false)
+
   const itemVariants = {
     open: {
       opacity: 1,
@@ -26,6 +25,10 @@ const Nav = () => {
   const makeNavSmall = () => {
     console.log('woorkkkk')
     setSmall(!smallNav)
+  }
+
+  const closeMore = () => {
+    setMore(!more)
   }
 
   return (  
@@ -49,14 +52,14 @@ const Nav = () => {
     //         </Modal> : null}
     //   </div>
     <div className = 'flex'>
-      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-20 h-screen dark:bg-black bg-white dark:border-gray-500 border-gray-300 border-r-[1px]'
+      <motion.div className='fixed w-1/6 max-w-[380px] z-20 h-screen dark:bg-black bg-white dark:border-gray-500 border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
-            {isAuthenticated ? <nav className = 'flex flex-col pl-3 mr-2'>
+            {isAuthenticated 
+            ? <nav className = 'flex flex-col justify-between h-full pl-3 mr-2'>
                 <div>
                   <Title/>
-                  <button onClick = {handleMode}>Dark</button>
                   <Navlink setSmall = {() => {setSmall(true)}} text = {"Home"} icon = {"fa-home"} link = '/' />
                   <Navlink setSmall = {() => {setSmall(true)}} text = {"Search"} icon = {"fa-search"} link = '/' />
                   <Navlink setSmall = {() => {setSmall(true)}} text = {"Explore"} icon = {"fa-compass"} link = '/explore' />
@@ -65,6 +68,20 @@ const Nav = () => {
                   <Navlink setSmall = {() => {}} text = {"Create"} icon = {"fa-plus-square-o"} setCreateOpen = {setCreateOpen}/>
                   <Navlink setSmall = {() => {setSmall(true)}} text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
                 </div>
+                {more ? <More open = {more} closeMore = {closeMore} buttonRef = {moreRef}/> : ''}
+                <button ref = {moreRef} onClick = {closeMore}>
+                  <motion.div className='hover:bg-slate-50 my-2 h-[50px] rounded-full py-2 px-3 button flex items-center'>
+                    <div className = 'w-[24px]'><i className = 'fa text-2xl fa-bars'></i></div>
+                    <motion.span className = 'ml-5'
+                    variants={{
+                      open: { opacity: 100 },
+                      closed: { opacity: 0, fontSize: 0}
+                    }}
+                    transition={{ duration: 0.1 }}>
+                      More
+                    </motion.span>
+                  </motion.div>
+                </button>
               </nav> : <div className = 'pl-5 border-b-1'></div>}
               {createOpen ? 
               <Modal modalClass = {'bg-white rounded-lg'} open = {createOpen} onClose = {() => {setCreateOpen(false)}}>
