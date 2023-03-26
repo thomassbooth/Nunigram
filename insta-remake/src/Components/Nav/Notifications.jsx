@@ -4,7 +4,9 @@ import Notification from './Notification';
 
 function Notifications() {
     const [notification, setNotification] = useState({today: [{img: 'images/cat.jpg', account: 'davePayne', follow: true, type: 'follow'}], thisWeek: [{}], thisMonth: [{}], Earlier: [{}]})
-  return (
+  
+    // TODO ONLY MAKE THIS RENDER ON THE FIRST OPEN -> no point in having all of this html sat in the background
+    return (
     <div className = 'fixed flex h-screen'>
         <div className = 'w-[90px]'>
         </div>
