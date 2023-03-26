@@ -18,15 +18,15 @@ function Messages() {
   }, [])
 
   return (
-    <div className = 'h-screen bg-gray-50'>
+    <div className = 'w-screen h-screen bg-gray-50 dark:bg-zinc-900'>
       {/* make a margin around the page and make it flex so it sits in the middle*/}
       <div className = 'py-6 h-full w-full flex justify-center'>
 
-        <div className = 'flex h-full border border-gray-300 rounded-sm w-[1000px] bg-white'>
+        <div className = 'flex h-full border border-gray-300 dark:border-gray-500 rounded-sm w-[1000px] bg-white dark:bg-black'>
           {/* left hand side */}
-          <div className = 'w-[350px] border-r border-gray-300 h-full'>
+          <div className = 'w-[350px] border-r border-gray-300 dark:border-gray-500 h-full'>
             {/* the box for the top left, name and create new message */}
-            <div className = 'flex items-center h-[60px] border-b border-gray-300'>
+            <div className = 'flex items-center h-[60px] border-b dark:border-gray-500 border-gray-300'>
               <div className = 'w-1/5'></div>
               <div className = 'w-3/5 flex justify-center'>
                 {user && <button><span className = 'font-medium'>{user.nickname} <i className = 'ml-2 text-[30px] fa fa-lg fa-angle-down'></i></span></button>}
@@ -64,7 +64,7 @@ function Messages() {
                   </div>
                 </div>
               : <div className = 'h-full'>
-                  <div className = 'h-[60px] border-b border-gray-300 flex justify-between items-center'>
+                  <div className = 'h-[60px] border-b border-gray-300 dark:border-gray-500 flex justify-between items-center'>
                     <div className = 'flex items-center ml-9'>
                       <img src = {openMessage.image} className = 'mr-3 rounded-full w-7 h-7'></img>
                       <div>

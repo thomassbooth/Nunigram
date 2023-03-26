@@ -69,7 +69,7 @@ const Center = () => {
             <Auth0Profile/>
             <div className = 'flex my-4'>
                 <p className = 'w-[250px] text-[13px] font-semibold opacity-50'>Suggestions for you</p>
-                <button className = 'text-xs tracking-tight hover:opacity-40'> See All</button>
+                <button className = 'text-xs tracking-tight hover:opacity-40 font-medium'> See All</button>
             </div>
             <div className = 'space-y-3'>
                 {suggestions.map((suggestion) => {

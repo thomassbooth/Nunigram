@@ -49,7 +49,7 @@ const Nav = () => {
     //         </Modal> : null}
     //   </div>
     <div className = 'flex'>
-      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-20 h-screen dark:bg-black bg-white border-gray-300 border-r-[1px]'
+      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-20 h-screen dark:bg-black bg-white dark:border-gray-500 border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>

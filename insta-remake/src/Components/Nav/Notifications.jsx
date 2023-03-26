@@ -10,10 +10,10 @@ function Notifications() {
 
     // TODO ONLY MAKE THIS RENDER ON THE FIRST OPEN -> no point in having all of this html sat in the background
     return (
-    <div className = 'fixed flex h-screen bg-white'>
+    <div className = 'fixed flex h-screen dark:bg-black bg-white'>
         <div className = 'w-[70px]'>
         </div>
-        <motion.div className = 'border-r' 
+        <motion.div className = 'border-r dark:border-gray-500' 
         variants = {{
             open: { opacity: 0, font: 0, width: 0},
             closed: { opacity: 1, width: `400px`}
@@ -32,7 +32,7 @@ function Notifications() {
                   {notification[type].map((notif, indx) =>{
                     return <Notification key = {indx} account = {notif.account} img = {notif.img} text = {notif.text} follow = {notif.follow} type = {notif.type} ago = {notif.ago}/>
                   })}
-                  <hr className = 'my-2'></hr>
+                  <hr className = 'my-2 dark:bg-gray-500'></hr>
                 </section>)
               })}
             </motion.div>
