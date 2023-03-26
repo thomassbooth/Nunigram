@@ -16,10 +16,15 @@ function Notifications() {
         <motion.div className = 'border-r' 
         variants = {{
             open: { opacity: 0, font: 0, width: 0},
-            closed: { opacity: 100, width: `400px`}
+            closed: { opacity: 1, width: `400px`}
           }}
-          transition={{ duration: 0.2 }}>
-            <div className = 'h-full overflow-y-scroll'>
+          transition={{ duration: 0.2}}>
+            <motion.div className = 'h-full overflow-y-scroll'
+            variants = {{
+              open:{opacity: 0, font: 0, transition:{ duration: 0}},
+              closed:{opacity: 1, transition:{ delay: 0.2, duration: 0.1}}
+            }}
+            >
               <h1 className = 'font-medium text-2xl ml-5 mt-5'>Notifications</h1>
               {Object.keys(notification).map((type, index) => {
                 return (<section key = {index} className = ''>
@@ -30,7 +35,7 @@ function Notifications() {
                   <hr className = 'my-2'></hr>
                 </section>)
               })}
-            </div>
+            </motion.div>
         </motion.div>
     </div>
   )
