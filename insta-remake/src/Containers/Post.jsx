@@ -1,5 +1,4 @@
 import React from 'react'
-
 import User from '../Components/Posts/User'
 import Reactions from '../Components/Posts/Reactions'
 import {useState} from 'react'

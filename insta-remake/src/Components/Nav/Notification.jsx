@@ -20,8 +20,6 @@ function Notification({img, account, follow, type, text, ago}) {
                 } else {
                     return <button className = 'h-8 text-sm px-5 rounded-lg font-medium bg-gray-200 hover:bg-gray-300'>Following</button>
                 }
-                
-            
             default:
                 break;
         }
