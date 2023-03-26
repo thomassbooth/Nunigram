@@ -7,11 +7,14 @@ import Profile from './Pages/Profile'
 import { useAuth0 } from '@auth0/auth0-react';
 import Explore from './Pages/Explore'
 import Login from './Pages/Login'
+import useDarkMode from './Hooks/useDarkMode'
 import { AuthenticationGuard } from './Components/Auth0/Authentication-guard'
   
   function App() {
     const {isAuthenticated, isLoading} = useAuth0();
-
+    const [darkTheme, setDarkTheme] = useDarkMode();
+    const handleMode = () => setDarkTheme(!darkTheme);
+    
     console.log(isAuthenticated)
     const router = createBrowserRouter(
       createRoutesFromElements(
