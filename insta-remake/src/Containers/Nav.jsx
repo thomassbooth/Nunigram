@@ -27,7 +27,7 @@ const Nav = () => {
     console.log('woorkkkk')
     setSmall(!smallNav)
   }
-  console.log(isInView)
+
   return (  
     // <div ref = {navRef} className=' fixed w-1/6 max-w-[380px] h-screen bg-white border-gray-300 border-r-[1px]'
     //     style = {{transform: isInView ? 'none' : 'translateX(-200px)',
@@ -54,15 +54,17 @@ const Nav = () => {
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
             {isAuthenticated ? <nav className = 'flex flex-col pl-3 mr-2'>
-                <Title/>
-                {/* <button onClick = {handleMode}>Dark</button> */}
-                <Navlink setSmall = {() => {setSmall(true)}} text = {"Home"} icon = {"fa-home"} link = '/' />
-                <Navlink setSmall = {() => {setSmall(true)}} text = {"Search"} icon = {"fa-search"} link = '/' />
-                <Navlink setSmall = {() => {setSmall(true)}} text = {"Explore"} icon = {"fa-compass"} link = '/explore' />
-                <Navlink setSmall = {() => {setSmall(true)}} text = {"Messages"} icon = {"fa-paper-plane-o"} link = '/message' />
-                <Navlink setSmall = {makeNavSmall} text = {"Notifications"} icon = {"fa-heart-o"}/>
-                <Navlink setSmall = {() => {}} text = {"Create"} icon = {"fa-plus-square-o"} setCreateOpen = {setCreateOpen}/>
-                <Navlink setSmall = {() => {setSmall(true)}} text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
+                <div>
+                  <Title/>
+                  {/* <button onClick = {handleMode}>Dark</button> */}
+                  <Navlink setSmall = {() => {setSmall(true)}} text = {"Home"} icon = {"fa-home"} link = '/' />
+                  <Navlink setSmall = {() => {setSmall(true)}} text = {"Search"} icon = {"fa-search"} link = '/' />
+                  <Navlink setSmall = {() => {setSmall(true)}} text = {"Explore"} icon = {"fa-compass"} link = '/explore' />
+                  <Navlink setSmall = {() => {setSmall(true)}} text = {"Messages"} icon = {"fa-paper-plane-o"} link = '/message' />
+                  <Navlink setSmall = {makeNavSmall} text = {"Notifications"} icon = {"fa-heart-o"}/>
+                  <Navlink setSmall = {() => {}} text = {"Create"} icon = {"fa-plus-square-o"} setCreateOpen = {setCreateOpen}/>
+                  <Navlink setSmall = {() => {setSmall(true)}} text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
+                </div>
               </nav> : <div className = 'pl-5 border-b-1'></div>}
               {createOpen ? 
               <Modal modalClass = {'bg-white rounded-lg'} open = {createOpen} onClose = {() => {setCreateOpen(false)}}>
