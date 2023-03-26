@@ -21,7 +21,7 @@ const Nav = () => {
       opacity: 1,
       transition: {type: "spring", stiffness: 300, damping: 24 }
     },
-    closed: {width: 90, transition: { duration: 0.2 } }
+    closed: {width: 70, transition: { duration: 0.2 } }
   };
   const makeNavSmall = () => {
     console.log('woorkkkk')
@@ -53,7 +53,7 @@ const Nav = () => {
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
-            {isAuthenticated ? <nav className = 'flex flex-col px-3 pl-5 border-b-1'>
+            {isAuthenticated ? <nav className = 'flex flex-col pl-3'>
                 <Title/>
                 {/* <button onClick = {handleMode}>Dark</button> */}
                 <Navlink setSmall = {() => {setSmall(true)}} text = {"Home"} icon = {"fa-home"} link = '/' />

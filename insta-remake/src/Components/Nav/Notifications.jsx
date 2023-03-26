@@ -7,13 +7,13 @@ function Notifications() {
   
     // TODO ONLY MAKE THIS RENDER ON THE FIRST OPEN -> no point in having all of this html sat in the background
     return (
-    <div className = 'fixed flex h-screen'>
-        <div className = 'w-[90px]'>
+    <div className = 'fixed flex h-screen bg-white'>
+        <div className = 'w-[70px]'>
         </div>
         <motion.div className = 'border-r' 
         variants = {{
             open: { opacity: 0, font: 0, width: 0},
-            closed: { opacity: 100, width: `${screen.width/6}px`}
+            closed: { opacity: 100, width: `${screen.width/6 + 28}px`}
           }}
           transition={{ duration: 0.2 }}>
             <div className = 'h-full overflow-y-scroll'>
