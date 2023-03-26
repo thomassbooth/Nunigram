@@ -22,7 +22,7 @@ function Modal({open, onClose, children, modalClass = 'bg-white'}) {
         }
     }, [open])
     return ReactDom.createPortal(
-        <motion.div className = 'fixed flex h-screen w-screen top-0 left-0 right-0 bottom-0 justify-center items-center bg-black/70'
+        <motion.div className = 'fixed flex h-screen w-screen z-20 top-0 left-0 right-0 bottom-0 justify-center items-center bg-black/70'
             initial = {{opacity: 0}}
             animate = {{opacity: 1}}
             exit = {{opacity: 0}}>

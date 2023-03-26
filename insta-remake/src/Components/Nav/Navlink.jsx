@@ -16,8 +16,8 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
     className += icon;
   
     let borderVarients = (text === 'Notifications') ? {
-      open: { border: 0},
-      closed: { border: '1px solid rgba(0, 0, 0, 1)', width: 51}
+      open: {},
+      closed: { border: '1px solid rgba(0, 0, 0, 0.2)', width: 51}
     } : {}
 
     

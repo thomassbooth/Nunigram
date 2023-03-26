@@ -19,7 +19,6 @@ const Nav = () => {
   const itemVariants = {
     open: {
       opacity: 1,
-      y: 0,
       transition: {type: "spring", stiffness: 300, damping: 24 }
     },
     closed: {width: 90, transition: { duration: 0.2 } }
@@ -50,7 +49,7 @@ const Nav = () => {
     //         </Modal> : null}
     //   </div>
     <div className = 'flex'>
-      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-0 h-screen bg-white border-gray-300 border-r-[1px]'
+      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-10 h-screen bg-white border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
@@ -69,14 +68,14 @@ const Nav = () => {
               <Modal modalClass = {'bg-white rounded-lg'} open = {createOpen} onClose = {() => {setCreateOpen(false)}}>
                 <CreateModal/>
               </Modal> : null}
-        </motion.div>
-        {<motion.div
-        className = '-z-10'
-        initial={false}
-        animate={smallNav ? "open" : "closed"}>
-          <Notifications/>
-        </motion.div>}
-      </div>
+      </motion.div>
+      {<motion.div
+      className = 'z-0'
+      initial={false}
+      animate={smallNav ? "open" : "closed"}>
+        <Notifications/>
+      </motion.div>}
+    </div>
   )
 }
 
