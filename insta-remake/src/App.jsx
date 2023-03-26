@@ -11,7 +11,7 @@ import { AuthenticationGuard } from './Components/Auth0/Authentication-guard'
   
   function App() {
     const {isAuthenticated, isLoading} = useAuth0();
-    
+
     console.log(isAuthenticated)
     const router = createBrowserRouter(
       createRoutesFromElements(

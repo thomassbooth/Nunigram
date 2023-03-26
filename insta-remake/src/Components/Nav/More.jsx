@@ -15,7 +15,6 @@ function More({open, closeMore, buttonRef}) {
                 closeMore()
             }
         }
-        document.body.style.overflow = 'hidden'
         document.addEventListener("mousedown", checkIfOutside)
         return () => {
             document.removeEventListener("mousedown", checkIfOutside)
@@ -23,7 +22,7 @@ function More({open, closeMore, buttonRef}) {
     }, [open])
     
   return (
-    <section ref = {ref} className = 'border-0 absolute h-fit w-[250px] rounded-lg left-2 bottom-[65px] bg-white dark:bg-zinc-800 text-black bg- dark:text-white'
+    <section ref = {ref} className = 'border-0 absolute h-fit w-[250px] cursor-pointer rounded-lg left-2 bottom-[65px] bg-white dark:bg-zinc-800 text-black bg- dark:text-white'
         style = {{boxShadow: '0px 0px 4px 4px #9992'}}>
         <div className = ' text'>
             <div className = 'flex justify-between p-3 border-b'>

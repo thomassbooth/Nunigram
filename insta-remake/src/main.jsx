@@ -4,7 +4,9 @@ import App from './App'
 import './index.css'
 import { Auth0Provider } from "@auth0/auth0-react";
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
+  
   <Auth0Provider
     domain="dev-wzza37ptt1vexeyh.eu.auth0.com"
     clientId="kyiy0YY80cnRmMh7l7HewpTDWItNvEI0"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
@@ -29,7 +29,8 @@ const useDarkMode = () => {
   const [enabled, setEnabled] = useLocalStorage('dark-theme');
   const isEnabled = typeof enabledState === 'undefined' && enabled;
 
-  useEffect(() => {
+  //was causing html to flash white as this wasnt finished yet so swapped to useLayout
+  useLayoutEffect(() => {
     const className = 'dark';
     const bodyClass = window.document.body.classList;
 
