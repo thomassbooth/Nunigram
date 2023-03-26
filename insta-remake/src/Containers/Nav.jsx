@@ -49,11 +49,11 @@ const Nav = () => {
     //         </Modal> : null}
     //   </div>
     <div className = 'flex'>
-      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-10 h-screen bg-white border-gray-300 border-r-[1px]'
+      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-20 h-screen bg-white border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav ? "open" : "closed"}
         variants = {itemVariants}>
-            {isAuthenticated ? <nav className = 'flex flex-col pl-3'>
+            {isAuthenticated ? <nav className = 'flex flex-col pl-3 mr-2'>
                 <Title/>
                 {/* <button onClick = {handleMode}>Dark</button> */}
                 <Navlink setSmall = {() => {setSmall(true)}} text = {"Home"} icon = {"fa-home"} link = '/' />
@@ -70,7 +70,7 @@ const Nav = () => {
               </Modal> : null}
       </motion.div>
       {<motion.div
-      className = 'z-0'
+      className = 'z-10'
       initial={false}
       animate={smallNav ? "open" : "closed"}>
         <Notifications/>

@@ -30,7 +30,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
       variants={borderVarients}
       transition={{ duration: 0.1 }}>
         
-      <div className = 'w-[24px]'>{img === true ? profileImg : <i className={className}></i>}</div>
+      {img === true ? profileImg : <div className = 'w-[24px]'><i className={className}></i></div>}
       <motion.span className = 'ml-5'
       variants={{
         open: { opacity: 100 },
