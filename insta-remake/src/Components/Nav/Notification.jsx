@@ -16,9 +16,9 @@ function Notification({img, account, follow, type, text, ago}) {
 
             case 'follow':
                 if (!follow){
-                    return <button className = 'h-9 text-sm px-4 rounded-lg font-medium bg-blue-500 hover:bg-blue-600 text-white'>Follow</button>
+                    return <button className = 'h-8 text-sm px-5 rounded-lg font-medium bg-blue-500 hover:bg-blue-600 text-white'>Follow</button>
                 } else {
-                    return <button className = 'h-9 text-sm px-4 rounded-lg font-medium bg-gray-200 hover:bg-gray-300'>Following</button>
+                    return <button className = 'h-8 text-sm px-5 rounded-lg font-medium bg-gray-200 hover:bg-gray-300'>Following</button>
                 }
                 
             
