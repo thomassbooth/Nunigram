@@ -28,7 +28,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
       setSmall()}}>
       <motion.div className='hover:bg-slate-50 dark:hover:bg-neutral-900/75 my-2 h-[50px] rounded-full py-2 px-3 button flex items-center'
       variants={borderVarients}
-      transition={{ duration: 0.1 }}>
+      transition={{ duration: 0.2 }}>
         
       {img === true ? profileImg : <div className = 'w-[24px]'><i className={className}></i></div>}
       <motion.span className = 'ml-5'
@@ -36,7 +36,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
         open: { opacity: 100 },
         closed: { opacity: 0, fontSize: 0}
       }}
-      transition={{ duration: 0.1 }}>
+      transition={{ duration: 0.2 }}>
         {text}
       </motion.span>
       </motion.div>

@@ -18,11 +18,11 @@ function Notifications({notificationsOpen}) {
             open: { opacity: 0, font: 0, width: 0},
             closed: { opacity: 1, width: `400px`}
           }}
-          transition={{ duration: 0.2}}>
+          transition={{ duration: 0.4}}>
             <motion.div className = 'h-full overflow-y-scroll'
             variants = {{
               open:{opacity: 0, font: 0, transition:{ duration: 0}},
-              closed:{opacity: 1, transition:{ delay: 0.2, duration: 0.1}}
+              closed:{opacity: 1, transition:{ delay: 0.4, duration: 0.4}}
             }}
             >
               <h1 className = 'font-medium text-2xl ml-5 mt-5'>Notifications</h1>
