@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect} from 'react'
 import { motion} from "framer-motion";
 import Notification from './Notification';
 
-function Notifications() {
+function Notifications({notificationsOpen}) {
     const [notification, setNotification] = useState({'Today': [{img: 'images/cat.jpg', account: 'davePayne', text: 'started following you.', follow: true, type: 'follow', ago: '5h'}, {img: 'images/storm.jpeg', account: 'definatelyNotDave', text: 'started following you.', follow: false, type: 'follow', ago: '11h'}], 
     'This Week': [{img: 'images/cat.jpg', account: 'davePayne', text: 'started following you.', follow: true, type: 'follow', ago: '5h'}, {img: 'images/cat.jpg', account: 'davePayne', text: 'started following you.', follow: true, type: 'follow', ago: '5h'}, {img: 'images/cat.jpg', account: 'davePayne', text: 'started following you.', follow: true, type: 'follow', ago: '5h'}, {img: 'images/cat.jpg', account: 'davePayne', text: 'started following you.', follow: true, type: 'follow', ago: '5h'}, {img: 'images/cat.jpg', account: 'davePayne', text: 'started following you.', follow: true, type: 'follow', ago: '5h'}], 
     })

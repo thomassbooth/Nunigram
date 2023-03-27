@@ -26,7 +26,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
       setCreateOpen(true)
       }
       setSmall()}}>
-      <motion.div className='hover:bg-slate-50 my-2 h-[50px] rounded-full py-2 px-3 button flex items-center'
+      <motion.div className='hover:bg-slate-50 dark:hover:bg-neutral-900/75 my-2 h-[50px] rounded-full py-2 px-3 button flex items-center'
       variants={borderVarients}
       transition={{ duration: 0.1 }}>
         
