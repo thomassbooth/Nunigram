@@ -123,7 +123,7 @@ const Nav = () => {
       className = 'z-10'
       initial={false}
       animate={smallNav.search ? "open" : "closed"}>
-        <Search/>
+        <Search smallNav = {smallNav}/>
       </motion.div>}
     </div>
   )
