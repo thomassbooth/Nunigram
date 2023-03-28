@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect} from 'react'
 import { motion} from "framer-motion";
+import useCloseComponent from '../../Hooks/useCloseComponent';
 
 function Search({smallNav}) {
     const [search, setSearch] = useState('')
     const searchRef = useRef()
-    
     useEffect(() => {
-        console.log('inside useEffect')
+
         if (!smallNav.search){
             searchRef.current.focus()
         }
@@ -26,7 +26,7 @@ function Search({smallNav}) {
 
     
     return (
-    <div className = 'fixed flex h-screen dark:bg-black bg-white'>
+    <div  className = 'fixed flex h-screen dark:bg-black bg-white'>
         <div className = 'w-[70px]'>
         </div>
         <motion.div className = 'border-r dark:border-gray-500' 

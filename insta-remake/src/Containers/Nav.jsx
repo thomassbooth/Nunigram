@@ -9,10 +9,12 @@ import Notifications from '../Components/Nav/Notifications';
 import More from '../Components/Nav/More';
 import Search from '../Components/Nav/Search';
 import MoreButton from '../Components/Nav/MoreButton';
+import useCloseComponent from '../Hooks/useCloseComponent';
 
 const Nav = () => {
   const {user, isAuthenticated} = useAuth0()
   const moreRef = useRef()
+  const navRef = useRef()
   const [createOpen, setCreateOpen] = useState(false)
   const [smallNav, setSmall] = useState({notifications: true, search: true, base: true})
   const [more, setMore] = useState(false)
@@ -56,9 +58,11 @@ const Nav = () => {
     setMore(!more)
   }
 
+  //useCloseComponent(smallNav, makeNavSmall, navRef)
+  
   return (  
     <div className = 'flex'>
-      <motion.div className='fixed w-1/6 max-w-[380px] z-20 h-screen dark:bg-black bg-white dark:border-gray-500 border-gray-300 border-r-[1px]'
+      <motion.div ref = {navRef} className='fixed w-1/6 max-w-[380px] z-20 h-screen dark:bg-black bg-white dark:border-gray-500 border-gray-300 border-r-[1px]'
         initial={false}
         animate={smallNav.base ? "open" : "closed"}
         variants = {itemVariants}>
@@ -74,11 +78,11 @@ const Nav = () => {
                   <Navlink setSmall = {() => {}} text = {"Create"} icon = {"fa-plus-square-o"} setCreateOpen = {setCreateOpen}/>
                   <Navlink setSmall = {() => {makeNavSmall()}} text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
                 </div>
-                {more ? <More open = {more} closeMore = {closeMore} buttonRef = {moreRef}/> : ''}
+                {more ? <More open = {more} closeMore = {closeMore} buttonRef = {moreRef} setSmall = {() => {makeNavSmall()}}/> : ''}
                 <MoreButton moreRef = {moreRef} closeMore = {closeMore}/>
               </nav> : <div className = 'pl-5 border-b-1'></div>}
               {createOpen ? 
-              <Modal modalClass = {'bg-white rounded-lg'} open = {createOpen} onClose = {() => {setCreateOpen(false)}}>
+              <Modal modalClass = {'bg-white dark:bg-black rounded-lg'} open = {createOpen} onClose = {() => {setCreateOpen(false)}}>
                 <CreateModal/>
               </Modal> : null}
       </motion.div>
@@ -86,13 +90,13 @@ const Nav = () => {
       className = 'z-10'
       initial={false}
       animate={smallNav.notifications ? "open" : "closed"}>
-        <Notifications/>
+        <Notifications smallNav = {smallNav} setSmall = {() => {makeNavSmall()}}/>
       </motion.div>}
       {<motion.div
       className = 'z-10'
       initial={false}
       animate={smallNav.search ? "open" : "closed"}>
-        <Search smallNav = {smallNav}/>
+        <Search smallNav = {smallNav} setSmall = {() => {makeNavSmall()}}/>
       </motion.div>}
     </div>
   )
