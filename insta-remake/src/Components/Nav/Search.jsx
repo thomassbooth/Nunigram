@@ -36,7 +36,7 @@ function Search({smallNav}) {
           }}
           transition={{ duration: 0.4}}>
             <h1 className = 'font-medium text-2xl ml-6 mt-5'>Search</h1>
-            <motion.div className = 'mx-5 mt-10 pb-10'
+            <motion.div className = 'mx-5 mt-10 pb-6'
             variants = {{
                 open:{opacity: 0, font: 0, transition:{ duration: 0}},
                 closed:{opacity: 1, transition:{ delay: 0.4, duration: 0.4}}
@@ -44,6 +44,8 @@ function Search({smallNav}) {
                 <input ref = {searchRef} id = 'search-input' value = {search} onChange = {updateSearch} placeholder = 'Search' className = 'peer outline-none bg-gray-100 dark:bg-neutral-800 py-2 px-5 rounded-lg w-full'></input>
                 <button onClick = {deleteSearch} className = 'p-3 peer-placeholder-shown:invisible peer-focus:visible visible text-sm absolute translate-x-[325px] -translate-y-[39px] flex items-center justify-center'><i className = 'fa fa-times'></i></button>  
             </motion.div>
+            <hr></hr>
+            <h2 className = 'font-medium text ml-6 mt-4'>Recent</h2>
             
         </motion.div>
     </div>
