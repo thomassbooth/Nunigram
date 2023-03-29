@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
-const navSlice = createSlice({
+export const navSlice = createSlice({
     name: 'nav',
-    initialState: { value: {open: ''}},
+    initialState: { value: { open: 'Home'}},
     reducers: {
         navigate: (state, action) => {
-            
+            state.value = action.payload
         }
     }
-})
+});
+
+export default navSlice.reducer

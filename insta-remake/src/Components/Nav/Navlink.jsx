@@ -2,8 +2,14 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { motion, sync, useCycle, useInView } from "framer-motion";
+import {useDispatch, useSelector} from 'react-redux'
+import { navigate } from '../../store'
 
 const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = false}) => {
+    const nav = useSelector((state) => state.nav.value)
+    console.log(nav)
+
+    const dispatch = useDispatch();
     const { user, isAuthenticated, isLoading } = useAuth0();
     let profileImg = ''
     if (isLoading && img === true) {
@@ -13,6 +19,9 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
     }
 
     let className = "fa text-2xl "
+    // if (nav.open === link){
+    //   className += 'bg-pink-500'
+    // }
     className += icon;
   
     let borderVarients = (selected) ? {
@@ -23,7 +32,9 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
 
     
   return (
-    <Link to = {link} onClick = {() => {if (text === 'Create'){
+    <Link to = {link} onClick = {() => {
+      dispatch(navigate({open: text}))
+      if (text === 'Create'){
       setCreateOpen(true)
       }
       setSmall()}}>
@@ -31,7 +42,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
       variants={borderVarients}
       transition={{ duration: 0.2 }}>
       {img === true ? profileImg : <div className = 'w-[24px]'><i className={className}></i></div>}
-        <motion.span className = 'ml-5'
+        <motion.span className = {(nav.open === text)? 'ml-5 font-bold' : 'ml-5'}
         variants={{
           open: { opacity: 100 },
           closed: { opacity: 0, fontSize: 0}

@@ -5,13 +5,16 @@ import './index.css'
 import { Auth0Provider } from "@auth0/auth0-react";
 import {configureStore} from '@reduxjs/toolkit'
 import {Provider} from 'react-redux'
+import navReducer from './features/nav'
+
 
 const store = configureStore({
-  reducer: {}
+  reducer: {
+    nav: navReducer,
+  }
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
     <Auth0Provider
       domain="dev-wzza37ptt1vexeyh.eu.auth0.com"
       clientId="kyiy0YY80cnRmMh7l7HewpTDWItNvEI0"
@@ -19,9 +22,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         redirect_uri: window.location.origin
       }}
     >
+      <Provider store={store}>
         <App/>
+      </Provider>
     </Auth0Provider>
-  </Provider>
 )
 
 // ReactDOM.render(

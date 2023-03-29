@@ -9,7 +9,9 @@ import Explore from './Pages/Explore'
 import Login from './Pages/Login'
 import useDarkMode from './Hooks/useDarkMode'
 import { AuthenticationGuard } from './Components/Auth0/Authentication-guard'
-  
+import { Provider } from 'react-redux'
+import { store } from './store'
+
   function App() {
     const {isAuthenticated, isLoading} = useAuth0();
     const [darkTheme, setDarkTheme] = useDarkMode();
@@ -37,15 +39,17 @@ import { AuthenticationGuard } from './Components/Auth0/Authentication-guard'
   
   const Root = () => {
     return(
-      <>
-        <div className = 'dark:bg-black dark:text-white overflow-x-hidden '>
-          <Nav/>
-          <div className = 'w-screen flex justify-center'>
-            <div className = 'w-1/6 '>
-            </div>
-            <Outlet/>
-          </div> 
-        </div>
-      </>
+      <Provider store = {store}>
+        <>
+          <div className = 'dark:bg-black dark:text-white overflow-x-hidden '>
+            <Nav/>
+            <div className = 'w-screen flex justify-center'>
+              <div className = 'w-1/6 '>
+              </div>
+              <Outlet/>
+            </div> 
+          </div>
+        </>
+      </Provider>
     )
   }
