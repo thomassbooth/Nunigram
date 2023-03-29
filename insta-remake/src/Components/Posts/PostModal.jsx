@@ -14,7 +14,7 @@ function PostModal({index}) {
   function handleCommentClick() {
     commentRef.current.focus()
   }
- 
+
   return (
     <div className = 'flex'>
         <img onDoubleClick = {() => {dispatch(like(index))}} className = 'h-[600px]' src = {postModalData.src}></img>
