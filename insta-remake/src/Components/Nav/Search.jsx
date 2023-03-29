@@ -46,7 +46,10 @@ function Search({smallNav}) {
             </motion.div>
             <hr></hr>
             <h2 className = 'font-medium text ml-6 mt-4'>Recent</h2>
-            
+            <div className = 'flex flex-col overflow-y-auto'>
+              <span className = 'absolute text-sm opacity-60 font-bold'>No recent searches.</span>
+                
+            </div>
         </motion.div>
     </div>
   )

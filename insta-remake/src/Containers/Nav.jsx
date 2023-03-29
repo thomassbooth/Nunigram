@@ -57,7 +57,6 @@ const Nav = () => {
   const closeMore = () => {
     setMore(!more)
   }
-
   //useCloseComponent(smallNav, makeNavSmall, navRef)
   
   return (  
@@ -71,10 +70,10 @@ const Nav = () => {
                 <div>
                   <Title/>
                   <Navlink setSmall = {() => {makeNavSmall()}} text = {"Home"} icon = {"fa-home"} link = '/' />
-                  <Navlink setSmall = {() => {makeNavSmall('search')}} text = {"Search"} icon = {"fa-search"} />
+                  <Navlink setSmall = {() => {makeNavSmall('search')}} text = {"Search"} icon = {"fa-search"} selected = {!smallNav.search}/>
                   <Navlink setSmall = {() => {makeNavSmall()}} text = {"Explore"} icon = {"fa-compass"} link = '/explore' />
                   <Navlink setSmall = {() => {makeNavSmall()}} text = {"Messages"} icon = {"fa-paper-plane-o"} link = '/message' />
-                  <Navlink setSmall = {() => {makeNavSmall('notif')}} text = {"Notifications"} icon = {"fa-heart-o"}/>
+                  <Navlink setSmall = {() => {makeNavSmall('notif')}} text = {"Notifications"} icon = {"fa-heart-o"} selected = {!smallNav.notifications}/>
                   <Navlink setSmall = {() => {}} text = {"Create"} icon = {"fa-plus-square-o"} setCreateOpen = {setCreateOpen}/>
                   <Navlink setSmall = {() => {makeNavSmall()}} text = {"Profile"} icon = {""} img = {true} link = {user.nickname} />
                 </div>
