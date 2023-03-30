@@ -2,10 +2,13 @@ import React, { useRef } from 'react'
 import Comment from './Comment'
 import Reactions from './Reactions'
 import User from './User'
+import { useDispatch, useSelector } from 'react-redux'
+import { like } from '../../features/posts/postsSlice'
 
-function PostModal({postModalData, account}) {
+function PostModal({index}) {
+    const dispatch = useDispatch();
     const commentRef = useRef()
-
+    const postModalData = useSelector((state) => state.posts.value)[index]
     const comments =  [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'davepayne52', image: 'images/cat.jpg', likes: 1, comment: 'looking sexy my friend', date: '5w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}]
 
   function handleCommentClick() {
@@ -14,20 +17,20 @@ function PostModal({postModalData, account}) {
 
   return (
     <div className = 'flex'>
-        <img className = 'h-[600px]' src = {postModalData.src}></img>
+        <img onDoubleClick = {() => {dispatch(like(index))}} className = 'h-[600px]' src = {postModalData.src}></img>
         <div className = 'flex-col w-[450px] m-2'>
-        <User  name = {account} location = {postModalData.location} picture = 'images/cat.jpg'/>
+        <User  name = {postModalData.profile.name} location = {postModalData.location} picture = 'images/cat.jpg'/>
         <hr className = 'mt-3'></hr>
         <div className='h-[370px] overflow-auto'>
             <div className = ''>
             {/* CAPTION OF THE POST  */}
-            <Comment account = {account} image = {'images/cat.jpg'} comment = {postModalData.caption} caption = {true} date = {postModalData.fromToday}/>
+            <Comment account = {postModalData.profile.name} image = {'images/cat.jpg'} comment = {postModalData.caption} caption = {true} date = {postModalData.fromToday}/>
             {comments.map((comment) => {
                 return <Comment account = {comment.account} image = {comment.image} likes = {comment.likes} comment = {comment.comment} date = {comment.date} onClose = {() => {setIsOpen(false)}}/>})}
             </div>
         </div>
         <hr className = 'my-1'></hr>
-        <Reactions likes = {postModalData.likes} commentHandle = {handleCommentClick}/>
+        <Reactions index = {index} commentHandle = {handleCommentClick}/>
         <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
         <hr className = ''></hr>
         <div className = 'mt-3 flex text-sm align-center'>

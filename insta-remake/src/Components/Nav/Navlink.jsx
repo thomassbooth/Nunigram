@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { motion, sync, useCycle, useInView } from "framer-motion";
 import {useDispatch, useSelector} from 'react-redux'
-import { navigate } from '../../store'
+import { navigate } from '../../features/nav/navSlice'
 
 const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = false}) => {
     const nav = useSelector((state) => state.nav.value)
@@ -33,7 +33,7 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
     
   return (
     <Link to = {link} onClick = {() => {
-      dispatch(navigate({open: text}))
+      if(text !== 'Create') {dispatch(navigate({open: text}))}
       if (text === 'Create'){
       setCreateOpen(true)
       }

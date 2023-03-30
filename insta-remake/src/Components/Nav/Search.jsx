@@ -3,6 +3,7 @@ import { motion} from "framer-motion";
 import useCloseComponent from '../../Hooks/useCloseComponent';
 
 function Search({smallNav}) {
+  
     const [search, setSearch] = useState('')
     const searchRef = useRef()
     useEffect(() => {

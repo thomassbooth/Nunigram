@@ -3,40 +3,50 @@ import Post from './Post'
 import Story from '../Components/Stories/Story'
 import Suggestion from '../Components/Suggestions/Suggestion'
 import Auth0Profile from '../Components/Auth0/Auth0profile'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { addPosts } from '../features/posts/postsSlice'
 
 const Center = () => {
+    let postsData = useSelector((state) => state.posts.value)
+    const dispatch = useDispatch();
     let storyId = 0;
     let postId = 0;
-    let postsData = [{
-        "src": "images/cat.jpg",
-        "likes": 123,
-        "liked": false,
-        "caption": "its me dave guys",
-        "profile": {
-            "name": "thomassboothh",
+    
+    useEffect(() => {
+        if (postsData.length == 0){dispatch(addPosts([{
             "src": "images/cat.jpg",
-            "location": "Brighton"
+            "likes": 123,
+            "liked": false,
+            "caption": "its me dave guys",
+            "profile": {
+                "name": "thomassboothh",
+                "src": "images/cat.jpg",
+                "location": "Brighton"
+            },
+            "comments": {
+                "count": 123
+                
+            }
         },
-        "comments": {
-            "count": 123
-            
-        }
-    },
-    {
-        "src": "images/cat.jpg",
-        "likes": 123,
-        "liked": false,
-        "caption": "wagwan my drilla",
-        "profile": {
-            "name": "defo not dave",
-            "src": "images/storm.jpeg",
-            "location": ""
-        },
-        "comments": {
-            "count": 111
-            
-        }
-    }]
+        {
+            "src": "images/cat.jpg",
+            "likes": 123,
+            "liked": false,
+            "caption": "wagwan my drilla",
+            "profile": {
+                "name": "defo not dave",
+                "src": "images/storm.jpeg",
+                "location": ""
+            },
+            "comments": {
+                "count": 111
+                
+            }
+        }]))}
+
+        return (() => console.log('center out peace'))
+    }, [])
     
     let suggestions = [{img: 'images/cat.jpg', name: 'poonineedstoilet', followedBy: 'bigd'},
     {img: 'images/cat.jpg', name: 'hedgetrimuk', followedBy: 'davepaynedave'}, 
@@ -45,7 +55,6 @@ const Center = () => {
 
     
     let storiesData = [{},{},{},{},{},{},{},]
-
   return (
     <div className = 'flex mt-7'>
         <div className = 'w-[550px]'>
@@ -58,9 +67,9 @@ const Center = () => {
             </div>
             <div className = 'mt-10'>
                 {/* all posts */}
-                {postsData.map((post) => {
+                {postsData.map((post, index) => {
                     postId += 1;
-                    return <Post id = {postId} postData = {post}/>
+                    return <Post key = {index} postData = {post} index = {index}/>
                 })}    
             </div>
             
