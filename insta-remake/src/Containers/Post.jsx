@@ -35,7 +35,7 @@ const Post = ({postData, index}) => {
               View all {postData.comments.count} comments
           </button>
           {isOpen ? <Modal open = {isOpen} onClose = {() => {setIsOpen(false)}}>
-          <PostModal index = {index}/>
+          <PostModal type = {'feed'} index = {index}/>
           
         
       </Modal> : null}

@@ -5,10 +5,13 @@ import User from './User'
 import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../../features/posts/postsSlice'
 
-function PostModal({index}) {
+function PostModal({index, type}) {
     const dispatch = useDispatch();
-    const commentRef = useRef()
-    const postModalData = useSelector((state) => state.posts.value)[index]
+    const commentRef = useRef();
+    switch (type){
+      case 'feed':
+        var postModalData = useSelector((state) => state.posts.value)[index]
+    } 
     const comments =  [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'davepayne52', image: 'images/cat.jpg', likes: 1, comment: 'looking sexy my friend', date: '5w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}]
 
   function handleCommentClick() {
