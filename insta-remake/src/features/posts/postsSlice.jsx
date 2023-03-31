@@ -18,7 +18,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 */
 const initialState = {value: 
-    []
+    {
+        feed: [],
+        profile: [],
+    }
+    
 }
 
 const postsSlice = createSlice({
@@ -27,10 +31,15 @@ const postsSlice = createSlice({
     reducers: {
         addPosts: (state, action) => {
             console.log(action.payload)
-            state.value.push(...action.payload)
+            if (action.payload.type === 'feed'){
+                console.log(action.payload)
+                state.value.feed.push(...action.payload.posts)
+            }
         },
         like: (state, action) => {
-            state.value[action.payload].liked = !state.value[action.payload].liked
+            if (action.payload.type === 'feed'){
+                state.value.feed[action.payload.index].liked = !state.value.feed[action.payload.index].liked
+            }
         }
         
     }

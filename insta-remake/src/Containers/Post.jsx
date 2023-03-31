@@ -19,14 +19,14 @@ const Post = ({postData, index}) => {
   }
 
   const onLike = () => {
-    dispatch(like(index))
+    dispatch(like({index: index, type: 'feed'}))
   }
 
   return (
     <div className = "mx-10">
         <User name = {postData.profile.name} linkName = {postData.profile.name} location = {postData.profile.location} picture = {postData.src} />
         <img src={postData.src} className = "rounded-sm" alt = 'This is meant to be a cat' onDoubleClick={onLike}/>
-        <Reactions index= {index} bookmark = {bookmarked} onMark = {onMark} liked = {liked} onLike = {onLike} likes = {postData.likes} name = {postData.profile.name} caption = {postData.caption}/>
+        <Reactions index= {index} bookmark = {bookmarked} onMark = {onMark} liked = {liked} onLike = {onLike} type = {'feed'}/>
         <div className = "text-sm"> 
             <Link to = {postData.profile.name} className = "font-semibold">{postData.profile.name}</Link> {postData.caption}
         </div>

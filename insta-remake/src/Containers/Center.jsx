@@ -8,13 +8,16 @@ import { useEffect } from 'react'
 import { addPosts } from '../features/posts/postsSlice'
 
 const Center = () => {
-    let postsData = useSelector((state) => state.posts.value)
+    let postsData = useSelector((state) => state.posts.value.feed)
+    console.log('this is postsData')
+    console.log(postsData)
     const dispatch = useDispatch();
     let storyId = 0;
     let postId = 0;
     
     useEffect(() => {
-        if (postsData.length == 0){dispatch(addPosts([{
+        if (postsData.length == 0){dispatch(addPosts({ 
+            posts: [{
             "src": "images/cat.jpg",
             "likes": 123,
             "liked": false,
@@ -43,7 +46,10 @@ const Center = () => {
                 "count": 111
                 
             }
-        }]))}
+        }],
+        type: 'feed'
+    }
+        ))}
 
         return (() => console.log('center out peace'))
     }, [])
@@ -69,7 +75,7 @@ const Center = () => {
                 {/* all posts */}
                 {postsData.map((post, index) => {
                     postId += 1;
-                    return <Post key = {index} postData = {post} index = {index}/>
+                    return <Post key = {index} postData = {post} index = {index} />
                 })}    
             </div>
             

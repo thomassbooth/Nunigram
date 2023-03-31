@@ -2,9 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../../features/posts/postsSlice'
 
-const Reactions = ({onMark, onLike, commentHandle, index}) => {
+const Reactions = ({onMark, commentHandle, index, type}) => {
     const dispatch = useDispatch()
-    let postData = useSelector((state) => state.posts.value)[index]
+    let postData = useSelector((state) => state.posts.value)[type][index]
 
     let likedClass = "fa fa-heart-o mr-5"
     let markedClass = "fa fa-bookmark-o"

@@ -8,10 +8,10 @@ import { like } from '../../features/posts/postsSlice'
 function PostModal({index, type}) {
     const dispatch = useDispatch();
     const commentRef = useRef();
-    switch (type){
-      case 'feed':
-        var postModalData = useSelector((state) => state.posts.value)[index]
-    } 
+    console.log('in postModal')
+    
+    var postModalData = useSelector((state) => state.posts.value)[type][index];
+    console.log(postModalData)
     const comments =  [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'davepayne52', image: 'images/cat.jpg', likes: 1, comment: 'looking sexy my friend', date: '5w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}]
 
   function handleCommentClick() {
@@ -20,7 +20,7 @@ function PostModal({index, type}) {
 
   return (
     <div className = 'flex'>
-        <img onDoubleClick = {() => {dispatch(like(index))}} className = 'h-[600px]' src = {postModalData.src}></img>
+        <img onDoubleClick = {() => {dispatch(like({index: index, type: type}))}} className = 'h-[600px]' src = {postModalData.src}></img>
         <div className = 'flex-col w-[450px] m-2'>
         <User  name = {postModalData.profile.name} location = {postModalData.location} picture = 'images/cat.jpg'/>
         <hr className = 'mt-3'></hr>
@@ -33,7 +33,7 @@ function PostModal({index, type}) {
             </div>
         </div>
         <hr className = 'my-1'></hr>
-        <Reactions index = {index} commentHandle = {handleCommentClick}/>
+        <Reactions index = {index} type = {type} commentHandle = {handleCommentClick}/>
         <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
         <hr className = ''></hr>
         <div className = 'mt-3 flex text-sm align-center'>
