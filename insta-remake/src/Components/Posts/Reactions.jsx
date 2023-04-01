@@ -4,8 +4,8 @@ import { like } from '../../features/posts/postsSlice'
 
 const Reactions = ({onMark, commentHandle, index, type}) => {
     const dispatch = useDispatch()
-    let postData = useSelector((state) => state.posts.value)[type][index]
-
+    let postData = useSelector((state) => state[type].value)[index]
+    
     let likedClass = "fa fa-heart-o mr-5"
     let markedClass = "fa fa-bookmark-o"
     if (postData.liked == true) {
