@@ -1,15 +1,15 @@
 import React from 'react'
-
 import User from '../Components/Posts/User'
 import Reactions from '../Components/Posts/Reactions'
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
 import Modal from './Modal'
 import PostModal from '../Components/Posts/PostModal'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../features/posts/postsSlice'
 
-const Post = ({postData, index}) => {
+const Post = ({index, type}) => {
+  const postData = useSelector((state) => state[type].value)[index]
   const dispatch = useDispatch();
   const [liked, setLiked] = useState(false);
   const [bookmarked, setMarked] = useState(false);
@@ -26,7 +26,7 @@ const Post = ({postData, index}) => {
     <div className = "mx-10">
         <User name = {postData.profile.name} linkName = {postData.profile.name} location = {postData.profile.location} picture = {postData.src} />
         <img src={postData.src} className = "rounded-sm" alt = 'This is meant to be a cat' onDoubleClick={onLike}/>
-        <Reactions index= {index} bookmark = {bookmarked} onMark = {onMark} liked = {liked} onLike = {onLike} type = {'feed'}/>
+        <Reactions index= {index} onMark = {onMark} onLike = {onLike} type = {type}/>
         <div className = "text-sm"> 
             <Link to = {postData.profile.name} className = "font-semibold">{postData.profile.name}</Link> {postData.caption}
         </div>
@@ -35,7 +35,7 @@ const Post = ({postData, index}) => {
               View all {postData.comments.count} comments
           </button>
           {isOpen ? <Modal open = {isOpen} onClose = {() => {setIsOpen(false)}}>
-          <PostModal type = {'feed'} index = {index}/>
+          <PostModal index = {index} type = {'posts'}/>
           
         
       </Modal> : null}

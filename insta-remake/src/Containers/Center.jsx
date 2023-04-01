@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { addPosts } from '../features/posts/postsSlice'
 
 const Center = () => {
-    let postsData = useSelector((state) => state.posts.value.feed)
+    let postsData = useSelector((state) => state.posts.value)
     console.log('this is postsData')
     console.log(postsData)
     const dispatch = useDispatch();
@@ -47,7 +47,6 @@ const Center = () => {
                 
             }
         }],
-        type: 'feed'
     }
         ))}
 
@@ -75,7 +74,7 @@ const Center = () => {
                 {/* all posts */}
                 {postsData.map((post, index) => {
                     postId += 1;
-                    return <Post key = {index} postData = {post} index = {index} />
+                    return <Post key = {index} type = {'posts'} index = {index} />
                 })}    
             </div>
             

@@ -9,8 +9,7 @@ function PostModal({index, type}) {
     const dispatch = useDispatch();
     const commentRef = useRef();
     console.log('in postModal')
-    
-    var postModalData = useSelector((state) => state.posts.value)[type][index];
+    var postModalData = useSelector((state) => state[type].value)[index];
     console.log(postModalData)
     const comments =  [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'davepayne52', image: 'images/cat.jpg', likes: 1, comment: 'looking sexy my friend', date: '5w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}]
 
@@ -33,7 +32,7 @@ function PostModal({index, type}) {
             </div>
         </div>
         <hr className = 'my-1'></hr>
-        <Reactions index = {index} type = {type} commentHandle = {handleCommentClick}/>
+        <Reactions index = {index} commentHandle = {handleCommentClick}/>
         <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
         <hr className = ''></hr>
         <div className = 'mt-3 flex text-sm align-center'>
