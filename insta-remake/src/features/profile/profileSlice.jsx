@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+    profile: {},
+    posts: [],
+    saved: [],
+    tagged: []
+}
+
 const postsSlice = createSlice({
-    name: 'posts',
+    name: 'profile',
     initialState,
     reducers: {
         addPosts: (state, action) => {
@@ -10,6 +17,12 @@ const postsSlice = createSlice({
                 console.log(action.payload)
                 state.value.feed.push(...action.payload.posts)
             }
+        },
+        addSaved: (state, action) => {
+
+        },
+        addTagged: (state, action) => {
+
         },
         like: (state, action) => {
             if (action.payload.type === 'feed'){
