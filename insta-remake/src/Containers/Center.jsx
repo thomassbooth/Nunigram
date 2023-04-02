@@ -9,8 +9,6 @@ import { addPosts } from '../features/posts/postsSlice'
 
 const Center = () => {
     let postsData = useSelector((state) => state.posts.value)
-    console.log('this is postsData')
-    console.log(postsData)
     const dispatch = useDispatch();
     let storyId = 0;
     let postId = 0;

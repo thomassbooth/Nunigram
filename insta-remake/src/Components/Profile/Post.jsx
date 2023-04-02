@@ -33,8 +33,6 @@ function Post({postData, account}) {
       </button>
       {isOpen ? <Modal open = {isOpen} onClose = {() => {setIsOpen(false)}}>
         <PostModal postModalData = {postModalData} account = {account}/>
-          
-        
       </Modal> : null}
     </>
   )

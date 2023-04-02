@@ -5,11 +5,20 @@ import User from './User'
 import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../../features/posts/postsSlice'
 
-function PostModal({index, type}) {
+function PostModal({index, type, profileType}) {
     const dispatch = useDispatch();
     const commentRef = useRef();
-    var postModalData = useSelector((state) => state[type].value)[index];
-    console.log(postModalData)
+
+    switch (type){
+      case 'posts':
+        var postModalData = useSelector((state) => state[type].value)[index];
+        break;
+
+      case 'profile':
+        var postModalData = useSelector((state) => state[type].value)[profileType][index];
+        postModalData.profile = useSelector()
+        break;
+    }
     const comments =  [{account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'davepayne52', image: 'images/cat.jpg', likes: 1, comment: 'looking sexy my friend', date: '5w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}, {account: 'pooni', image: 'images/storm.jpeg', likes: 2, comment: 'this is a test comment', date: '7w'}]
 
   function handleCommentClick() {
@@ -20,7 +29,7 @@ function PostModal({index, type}) {
     <div className = 'flex'>
         <img onDoubleClick = {() => {dispatch(like({index: index, type: type}))}} className = 'h-[600px]' src = {postModalData.src}></img>
         <div className = 'flex-col w-[450px] m-2'>
-        <User  name = {postModalData.profile.name} location = {postModalData.location} picture = 'images/cat.jpg'/>
+        <User name = {postModalData.profile.name} location = {postModalData.location} picture = 'images/cat.jpg'/>
         <hr className = 'mt-3'></hr>
         <div className='h-[370px] overflow-auto'>
             <div className = ''>
@@ -31,7 +40,7 @@ function PostModal({index, type}) {
             </div>
         </div>
         <hr className = 'my-1'></hr>
-        <Reactions index = {index} commentHandle = {handleCommentClick}/>
+        <Reactions index = {index} likes = {postModalData.likes} type = {type} profileType = {profileType} commentHandle = {handleCommentClick}/>
         <p className = 'text-[10px] opacity-50 mb-2'>{postModalData.posted}</p>
         <hr className = ''></hr>
         <div className = 'mt-3 flex text-sm align-center'>

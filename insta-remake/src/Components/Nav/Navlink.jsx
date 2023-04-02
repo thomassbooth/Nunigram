@@ -33,9 +33,9 @@ const Navlink = ({setSmall, text, icon, img, link, setCreateOpen, selected = fal
     
   return (
     <Link to = {link} onClick = {() => {
-      if(text !== 'Create') {dispatch(navigate({open: text}))}
+      if(!(['Create', 'Search', 'Notifications'].includes(text))) {dispatch(navigate({open: text}))}
       if (text === 'Create'){
-      setCreateOpen(true)
+        setCreateOpen(true)
       }
       setSmall()}}>
       <motion.div className='hover:bg-slate-50 dark:hover:bg-neutral-900/75 my-2 h-[50px] rounded-full py-2 px-3 button flex items-center'

@@ -2,17 +2,13 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../../features/posts/postsSlice'
 
-const Reactions = ({onMark, commentHandle, index, type}) => {
+const Reactions = ({onMark, commentHandle, index, type, likes, }) => {
     const dispatch = useDispatch()
     let postData = useSelector((state) => state[type].value)[index]
     let likedClass = "fa fa-heart-o mr-5"
     let markedClass = "fa fa-bookmark-o"
     if (postData.liked == true) {
         likedClass = "fa fa-heart-o mr-5 bg-red-300"
-    }
-    
-    if (postData.bookmark == true) {
-        markedClass = "fa fa-bookmark-o bg-red-300"
     }
     
   return (
@@ -26,7 +22,7 @@ const Reactions = ({onMark, commentHandle, index, type}) => {
             <button className = "hover:opacity-50" onClick = {onMark}><i className = {markedClass}></i></button>
         </div>
         <button className = "mb-1 text-sm font-semibold">
-            {postData.likes} likes
+            {likes} likes
         </button>
     </div>
     

@@ -8,14 +8,23 @@ import PostModal from '../Components/Posts/PostModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../features/posts/postsSlice'
 
-const Post = ({index, type}) => {
-  const postData = useSelector((state) => state[type].value)[index]
+const Post = ({index, type, profileType}) => {
   const dispatch = useDispatch();
   const [liked, setLiked] = useState(false);
   const [bookmarked, setMarked] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
   const onMark = () => {
     setMarked(!bookmarked)
+  }
+
+  switch (type){
+    case 'posts':
+      var postData = useSelector((state) => state[type].value)[index];
+      break;
+
+    case 'profile':
+      var postData = useSelector((state) => state[type].value)[profileType][index];
+      break;
   }
 
   const onLike = () => {
