@@ -1,10 +1,7 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Modal from '../../Containers/Modal'
-import Comment from '../Posts/Comment'
 import PostModal from '../Posts/PostModal'
-import Reactions from '../Posts/Reactions'
-import User from '../Posts/User'
 
 
 function Post({src, likes, comments, index, profileType}) {
@@ -19,7 +16,7 @@ function Post({src, likes, comments, index, profileType}) {
     posted: 'JANUARY 20',
     fromToday: '8w'
   }
-
+  console.log('inside of post')
   return (
     <>
       <button onClick = {() => {setIsOpen(true)}} className = 'relative group mb-7'>

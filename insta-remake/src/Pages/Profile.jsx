@@ -6,12 +6,11 @@ import { setup } from '../features/profile/profileSlice'
 import ImageTypes from '../Components/Profile/ImageTypes'
 import Post from '../Components/Profile/Post'
 import About from '../Containers/About'
-import Modal from '../Containers/Modal'
 
 function Profile() {
     const profileData = useSelector((state) => state.profile.value.profile)
     const dispatch = useDispatch()
-    let posts = []
+    const posts = useSelector((state) => state.profile.value.posts)
     const { handle } = useParams();
     const [activeTab, setActive] = useState('POSTS')
     const postTypes = {
@@ -33,7 +32,6 @@ function Profile() {
     function renderPosts() {
       switch(activeTab){
         case 'POSTS':
-          posts = useSelector((state) => state.profile.value.posts)
           return (
             <div className = 'flex flex-wrap justify-between'>
               {posts.map((post, index) => {
@@ -42,12 +40,14 @@ function Profile() {
           )
         case 'SAVED':
           return 'SAVED'
+
         case 'TAGGED':
           let tags= [{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'},{likes: 50, comments: 10, src: 'images/storm.jpeg', nickname: 'hamad'}]
+          console.log('hello im inside the tagged part')
           return (
             <div className = 'flex flex-wrap justify-between'>
-              {tags.map((tag) => {
-                  return <Post postData = {tag} account = {tag.nickname}/>})}
+              {tags.map((tag, index) => {
+                  return <Post src = {tag.src} likes = {tag.likes} comments = {tag.comments} index = {index} />})}
             </div>
           )
         default:
@@ -56,7 +56,7 @@ function Profile() {
     }
 
     useEffect(() => {
-      if (posts.length == 0) {dispatch(setup({profile: {
+      dispatch(setup({profile: {
           nickname: 'thomassboothh',
           name: 'Tom Booth',
           pronouns: 'he/him',
@@ -108,7 +108,7 @@ function Profile() {
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'}]
-        }))}
+        }))
       
     }, [])
     
