@@ -10,6 +10,7 @@ import About from '../Containers/About'
 function Profile() {
     const profileData = useSelector((state) => state.profile.value.profile)
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(true)
     const posts = useSelector((state) => state.profile.value.posts)
     const { handle } = useParams();
     const [activeTab, setActive] = useState('POSTS')
@@ -72,43 +73,44 @@ function Profile() {
             watched: false
           },},
           posts:[{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
-          likes: 10,
-          src: 'images/cat.jpg',
+          
+          
           liked: false,
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
-          likes: 10,
-          src: 'images/cat.jpg',
+          
+          
           liked: false,
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
-          likes: 10,
-          src: 'images/cat.jpg',
+          
+          
           liked: false,
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
-          likes: 10,
-          src: 'images/cat.jpg',
+          
+          
           liked: false,
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
-          likes: 10,
-          src: 'images/cat.jpg',
+          
+          
           liked: false,
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
-          likes: 10,
-          src: 'images/cat.jpg',
+          
+          
           liked: false,
           location: 'Hatta Dam, Dubai, UAE',
           posted: 'JANUARY 20',
           fromToday: '8w'}]
         }))
+        setLoading(false)
       
     }, [])
     
@@ -117,7 +119,7 @@ function Profile() {
 
 
   return (
-    <div className = 'w-5/6 flex justify-center'>
+    !loading && <div className = 'w-5/6 flex justify-center'>
       <title>{profileData.name}</title>
       <div className = 'w-[1000px]'>
         <About handle = {handle} data = {profileData} watchedStory = {watchedStory} followedUser = {followedUser}/>

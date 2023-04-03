@@ -2,6 +2,7 @@ import React from 'react'
 
 function Image({data, user, watchedStory}) {
     let storyClass = ''
+    console.log(data)
     if (!data.story.watched){
         storyClass = 'rounded-full bg-gradient-to-tr from-yellow-400 to-fuchsia-600 p-0.5'
     } else {
