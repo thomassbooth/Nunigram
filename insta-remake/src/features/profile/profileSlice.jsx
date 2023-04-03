@@ -13,6 +13,10 @@ const postsSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
+        setup: (state, action) => {
+            state.value.profile = action.payload.profile
+            state.value.posts.push(...action.payload.posts)
+        },
         add: (state, action) => {
             state.value[action.payload.type].push(...action.payload.add)
         },
@@ -28,6 +32,6 @@ const postsSlice = createSlice({
     }
 });
 
-export const {profile, add, like} = postsSlice.actions;
+export const {profile, add, like, setup} = postsSlice.actions;
 
 export default postsSlice.reducer

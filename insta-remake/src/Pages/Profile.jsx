@@ -1,30 +1,19 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { setup } from '../features/profile/profileSlice'
 import ImageTypes from '../Components/Profile/ImageTypes'
 import Post from '../Components/Profile/Post'
 import About from '../Containers/About'
 import Modal from '../Containers/Modal'
 
 function Profile() {
-    const {handle} = useParams();
+    const profileData = useSelector((state) => state.profile.value.profile)
+    const dispatch = useDispatch()
+    let posts = []
+    const { handle } = useParams();
     const [activeTab, setActive] = useState('POSTS')
-    const [profileData, setProfile] = useState({
-      nickname: 'thomassboothh',
-      name: 'Tom Booth',
-      pronouns: 'he/him',
-      about: 'test datatest data123',
-      occupation: 'Software Engineer',
-      mutualFollowers: ['Dave', 'bigtimmy', 'stevenHawk', 'stinkyPeter'],
-      posts: 15,
-      followers: 388,
-      following: 384,
-      followed: false,
-      story: {
-        exists: true,
-        watched: false
-      },});
-
     const postTypes = {
       1: {
         name: 'POSTS',
@@ -44,11 +33,11 @@ function Profile() {
     function renderPosts() {
       switch(activeTab){
         case 'POSTS':
-          let posts = [{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'},{likes: 50, comments: 10, src:'images/cat.jpg'}]
+          posts = useSelector((state) => state.profile.value.posts)
           return (
             <div className = 'flex flex-wrap justify-between'>
-              {posts.map((post) => {
-                  return <Post postData = {post} account = {profileData.nickname}/>})}
+              {posts.map((post, index) => {
+                  return <Post src = {post.src} comments = {post.comments} likes = {post.likes} index = {index} profileType = {'posts'}/>})}
             </div>
           )
         case 'SAVED':
@@ -66,6 +55,63 @@ function Profile() {
       }
     }
 
+    useEffect(() => {
+      if (posts.length == 0) {dispatch(setup({profile: {
+          nickname: 'thomassboothh',
+          name: 'Tom Booth',
+          pronouns: 'he/him',
+          about: 'test datatest data123',
+          occupation: 'Software Engineer',
+          mutualFollowers: ['Dave', 'bigtimmy', 'stevenHawk', 'stinkyPeter'],
+          posts: 15,
+          followers: 388,
+          following: 384,
+          followed: false,
+          story: {
+            exists: true,
+            watched: false
+          },},
+          posts:[{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
+          likes: 10,
+          src: 'images/cat.jpg',
+          liked: false,
+          location: 'Hatta Dam, Dubai, UAE',
+          posted: 'JANUARY 20',
+          fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
+          likes: 10,
+          src: 'images/cat.jpg',
+          liked: false,
+          location: 'Hatta Dam, Dubai, UAE',
+          posted: 'JANUARY 20',
+          fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
+          likes: 10,
+          src: 'images/cat.jpg',
+          liked: false,
+          location: 'Hatta Dam, Dubai, UAE',
+          posted: 'JANUARY 20',
+          fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
+          likes: 10,
+          src: 'images/cat.jpg',
+          liked: false,
+          location: 'Hatta Dam, Dubai, UAE',
+          posted: 'JANUARY 20',
+          fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
+          likes: 10,
+          src: 'images/cat.jpg',
+          liked: false,
+          location: 'Hatta Dam, Dubai, UAE',
+          posted: 'JANUARY 20',
+          fromToday: '8w'},{likes: 50, comments: 10, src:'images/cat.jpg', caption: 'Home sweet home',
+          likes: 10,
+          src: 'images/cat.jpg',
+          liked: false,
+          location: 'Hatta Dam, Dubai, UAE',
+          posted: 'JANUARY 20',
+          fromToday: '8w'}]
+        }))}
+      
+    }, [])
+    
     const watchedStory = () => {setProfile({...profileData, story:{exists: true, watched: true}})}
     const followedUser = () => {setProfile({...profileData,followed: !profileData.followed})}
 

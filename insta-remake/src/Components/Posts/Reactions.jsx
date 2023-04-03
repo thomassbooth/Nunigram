@@ -2,9 +2,17 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { like } from '../../features/posts/postsSlice'
 
-const Reactions = ({onMark, commentHandle, index, type, likes, }) => {
+const Reactions = ({onMark, commentHandle, index, type, profileType}) => {
     const dispatch = useDispatch()
-    let postData = useSelector((state) => state[type].value)[index]
+    switch (type){
+        case 'posts':
+          var postData = useSelector((state) => state[type].value)[index];
+          break;
+  
+        case 'profile':
+          var postData = useSelector((state) => state[type].value)[profileType][index];
+          break;
+      }
     let likedClass = "fa fa-heart-o mr-5"
     let markedClass = "fa fa-bookmark-o"
     if (postData.liked == true) {
@@ -22,7 +30,7 @@ const Reactions = ({onMark, commentHandle, index, type, likes, }) => {
             <button className = "hover:opacity-50" onClick = {onMark}><i className = {markedClass}></i></button>
         </div>
         <button className = "mb-1 text-sm font-semibold">
-            {likes} likes
+            {postData.likes} likes
         </button>
     </div>
     
