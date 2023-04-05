@@ -132,8 +132,7 @@ function Profile() {
           </div>
           {renderPosts()}
         </div>
-      </div>
-        
+      </div> 
     </div>
   )
 }
