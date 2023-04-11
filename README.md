@@ -2,7 +2,7 @@
 
 A Front end for an instagram recreation.
 Development has been stopped on this just in case of copyright claims.
-Currently being hosted at: https://meek-crumble-8c7a78.netlify.app/
+Currently being hosted at: https://nunigram.netlify.app/
 
 ## Installation
 
