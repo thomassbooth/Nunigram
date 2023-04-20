@@ -1,4 +1,4 @@
-# Nunigram
+# Nunigram Front end
 
 A Front end for an instagram recreation.
 Development has been stopped on this just in case of copyright claims.
