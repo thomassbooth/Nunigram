@@ -1,6 +1,6 @@
 # Nunigram Front end
 
-A Front end for an instagram recreation.
+A Front end for an instagram recreation with no backend capabilities.
 Development has been stopped on this just in case of copyright claims.
 Currently being hosted at: https://nunigram.netlify.app/
 
